@@ -20,6 +20,26 @@ export default function Home() {
        </div>
 
       </div>
+
+
+      <div id="totalVotes" className="flex flex-col gap-1 mt-9" >
+      <h4 className="H4 " style={{margin : 0}} >Total Votes</h4>
+      <h4 className="H4 " style={{margin : 0}}>{22.801}</h4>
+      </div>
+      <div id="votesComperation" className="flex mt-24 justify-between px-16 w-full items-end " >
+      <div className="flex flex-col gap-7 items-center" >
+       <h4 style={{margin : 0}} className="H4" >Trump Spudz</h4>
+       <h4 style={{margin : 0}} className="H4" >12.325</h4>
+       <button style={{margin : 0}} className="bg-red-500 rounded-xl H4 p-4" >54%</button>
+       </div>
+       <img src="/greaterSign.png" className="w-32" />
+       <div className="flex flex-col gap-7 items-center" >
+       <h4 style={{margin : 0}} className="H4" >Biden Spudz</h4>
+       <h4 style={{margin : 0}} className="H4" >10.253</h4>
+       <button style={{margin : 0}} className="bg-red-500 rounded-xl H4 p-4 " >46%</button>
+      </div>
+       </div>
+       <img  className="mt-16" src="/leaderboard.png"  width="400px" />
     </main>
   );
 }

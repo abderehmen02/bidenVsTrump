@@ -37,3 +37,12 @@ html {
     zoom: 60%;
   }
 }
+
+
+.H5 {
+  @apply text-3xl text-white tracking-wider font-bold mt-11 text-center m-0
+}
+
+.H4 {
+  @apply text-4xl text-white tracking-wider font-bold mt-11 text-center  m-0
+}
