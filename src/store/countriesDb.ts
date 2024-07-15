@@ -8,7 +8,7 @@ interface CountriesStore {
     setCountriesVotes : (countriesVotes : CountryInfoDb[])=>void
 }
 
-const countriesVotesStore = create<CountriesStore>((set)=>({
+export const useCountriesVotesStore = create<CountriesStore>((set)=>({
     countriesVotes : [] ,
     setCountriesVotes : (cVotes)=>set({countriesVotes : cVotes})
 }))
