@@ -5,7 +5,7 @@ import { getIpAddressInfo } from "@/utils/ipAddress";
 
 
 export default async function Home() {
-  const ipAddress =  headers().get("x-forwarded-for")
+  const ipAddress =   "41.97.129.253" ||  headers().get("x-forwarded-for")
   // console.log("ip addres data"  , ipAddressData) 
    return (
     <main className="max-w-[1500px] flex items-center  flex-col justify-center pt-3 px-3 pb-0 ">
@@ -47,7 +47,7 @@ export default async function Home() {
       </div>
        </div>
        <img  className="mt-16" src="/leaderboard.png"  width="400px" />
-       <LeaderBoard/>
+       <LeaderBoard ipAddress={ipAddress || ""}/>
     </main>
   );
 }
