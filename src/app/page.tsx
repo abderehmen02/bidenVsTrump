@@ -1,7 +1,14 @@
+import { useState } from "react";
+import { LeaderBoard } from "./_components/leaderboard";
+import { headers } from 'next/headers'
+import { getIpAddressInfo } from "@/utils/ipAddress";
 
-export default function Home() {
-  return (
-    <main className="max-w-[1500px] flex items-center flex-col justify-center p-3 ">
+
+export default async function Home() {
+  const ipAddress =  headers().get("x-forwarded-for")
+  // console.log("ip addres data"  , ipAddressData) 
+   return (
+    <main className="max-w-[1500px] flex items-center  flex-col justify-center pt-3 px-3 pb-0 ">
       <img src="/pageTitle.png" width="900px" />
       <h5 className="text-3xl text-white tracking-wider font-bold mt-11 text-center" >Tap on your favorite Spudz candidate to cast your vote!</h5>
       <img src="/pageFlag.png" width="820px" />
@@ -40,6 +47,7 @@ export default function Home() {
       </div>
        </div>
        <img  className="mt-16" src="/leaderboard.png"  width="400px" />
+       <LeaderBoard/>
     </main>
   );
 }

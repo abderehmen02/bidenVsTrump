@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Head from "next/head";
+import { AppProvider } from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,9 +16,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  
+
   return (
     <html lang="en">
-      <body className="flex flex-col justify-center  items-center py-16 bg-black w-full h-full">{children}</body>
+   <body className="flex flex-col justify-center  items-center pt-16  bg-black w-full h-full">
+    <AppProvider>{children}</AppProvider>
+    </body>
     </html>
   );
 }
