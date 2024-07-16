@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Head from "next/head";
 import { AppProvider } from "./providers";
+import "bootstrap-icons/font/bootstrap-icons.css"
 
 const inter = Inter({ subsets: ["latin"] });
 
