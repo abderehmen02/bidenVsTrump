@@ -1,4 +1,4 @@
-import { Candidates } from "@/app/api/addVote/route"
+import { Candidates } from "@/hooks/useVotes"
 import {z} from "zod"
 
 

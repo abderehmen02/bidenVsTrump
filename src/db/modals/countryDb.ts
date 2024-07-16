@@ -8,12 +8,7 @@ import mongoose , {model , mongo, ObjectId, Schema} from "mongoose";
 
 
 
-export type  CountryInfoDb = {
-    _id : ObjectId ,
-    countrySymbol : string ,
-    biden : number ,
-    trump : number
-}
+
 
 
 const CountrySchema = new mongoose.Schema<CountryInfoDb>({
