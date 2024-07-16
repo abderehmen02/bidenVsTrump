@@ -8,6 +8,7 @@ export const VotingUi = ()=>{
 const {addBidenVote , addTrumpVote} = useVotes()
 const voteTrumpAnimation  = useAnimation()
 const rotateTrumpAnimation = useAnimation()
+const rotateBidenAnimation = useAnimation()
 const voteBidenAnimation = useAnimation()
 const [votingTrump , setVotingTrump ] = useState(false)
 const [votingBiden, setVotingBiden] = useState(false)
@@ -24,7 +25,13 @@ const handleTrumpClick = ()=>{
 }
 
 const handleBidenClick = ()=>{
+    if(votingBiden) return 
+    setVotingBiden(true)
     addBidenVote()
+    voteBidenAnimation.start({y : -0, opacity : 1, transition : {duration : 0.3} }).then(()=>{setVotingBiden(false)
+        voteBidenAnimation.start({y : -300 ,  transition : {duration : 0}})
+    })
+    rotateBidenAnimation.start({rotate : [ 10 , -10 , 0  ]  , transition : {duration :1 } })
 }
 
 
@@ -43,8 +50,9 @@ const handleBidenClick = ()=>{
    <img src="/vs.png"  className="z-[2] h-fit w-[320px] -translate-y-24" />
    </div> 
    <div className="flex z-10 relative flex-col gap-7" >
+   <motion.h4  initial={{y : -300 , opacity : 1}} animate={voteBidenAnimation} className={cn("H1 absolute top-44 right-0 text-white" , {"hidden" : !votingBiden} )} >+1</motion.h4>
    <img className="w-[400px]" src="/bidenText.png" />
-   <img className="w-[400px]" onClick={handleBidenClick} src="/bidenBody.png" />
+   <motion.img className="w-[400px]" animate={rotateBidenAnimation} onClick={handleBidenClick} src="/bidenBody.png" />
    </div>
 
   </div>
