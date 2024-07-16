@@ -5,7 +5,7 @@ import { getIpAddressInfo } from "@/utils/ipAddress";
 import { VotingUi } from "./_components/votingUi";
 import { CountryInfoDb, CountryModal } from "@/db/modals/countryDb";
 import { TotalVotes } from "./_components/totalVotes";
-import { BidenVotes, TrumpVotes } from "./_components/candidates";
+import { BidenVotes, GreaterSign, TrumpVotes } from "./_components/candidates";
 import { connectDbPromise } from "@/db/connect";
 
 
@@ -26,7 +26,7 @@ export default async function Home() {
       <TotalVotes/>
       <div id="votesComperation" className="flex mt-24 justify-between px-16 w-full items-end " >
        <TrumpVotes/>
-       <img src="/greaterSign.png" className="w-32" />
+       <GreaterSign/>
         <BidenVotes/>
        </div>
        <img  className="mt-16" src="/leaderboard.png"  width="400px" />
