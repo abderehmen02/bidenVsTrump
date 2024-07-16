@@ -13,11 +13,10 @@ const voteBidenAnimation = useAnimation()
 const [votingTrump , setVotingTrump ] = useState(false)
 const [votingBiden, setVotingBiden] = useState(false)
 
-
 const handleTrumpClick = ()=>{
-    if(votingTrump) return 
     setVotingTrump(true)       
     addTrumpVote()
+    if(votingTrump) return 
     voteTrumpAnimation.start({y : -0, opacity : 1, transition : {duration : 0.3} }).then(()=>{setVotingTrump(false)
         voteTrumpAnimation.start({y : -300 ,  transition : {duration : 0}})
     })
@@ -25,9 +24,9 @@ const handleTrumpClick = ()=>{
 }
 
 const handleBidenClick = ()=>{
-    if(votingBiden) return 
     setVotingBiden(true)
     addBidenVote()
+    if(votingBiden) return 
     voteBidenAnimation.start({y : -0, opacity : 1, transition : {duration : 0.3} }).then(()=>{setVotingBiden(false)
         voteBidenAnimation.start({y : -300 ,  transition : {duration : 0}})
     })
