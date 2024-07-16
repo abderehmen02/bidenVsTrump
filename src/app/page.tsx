@@ -3,11 +3,16 @@ import { LeaderBoard } from "./_components/leaderboard";
 import { headers } from 'next/headers'
 import { getIpAddressInfo } from "@/utils/ipAddress";
 import { VotingUi } from "./_components/votingUi";
+import { CountryInfoDb, CountryModal } from "@/db/modals/countryDb";
+import { TotalVotes } from "./_components/totalVotes";
 
 
 export default async function Home() {
   const ipAddress =   "41.97.129.253" ||  headers().get("x-forwarded-for")
   // console.log("ip addres data"  , ipAddressData) 
+  const allCountriesVotes : CountryInfoDb[] = await CountryModal().find()
+
+
   
    return (
     <main className="max-w-[1500px] flex items-center  flex-col justify-center pt-3 px-3 pb-0 ">
@@ -15,10 +20,7 @@ export default async function Home() {
       <h5 className="text-3xl text-white tracking-wider font-bold mt-11 text-center" >Tap on your favorite Spudz candidate to cast your vote!</h5>
       <img src="/pageFlag.png" width="820px" />
       <VotingUi/>
-      <div id="totalVotes" className="flex flex-col gap-1 mt-9" >
-      <h4 className="H4 " style={{margin : 0}} >Total Votes</h4>
-      <h4 className="H4 " style={{margin : 0}}>{22.801}</h4>
-      </div>
+      <TotalVotes/>
       <div id="votesComperation" className="flex mt-24 justify-between px-16 w-full items-end " >
       <div className="flex flex-col gap-7 items-center" >
        <h4 style={{margin : 0}} className="H4" >Trump Spudz</h4>
@@ -33,7 +35,7 @@ export default async function Home() {
       </div>
        </div>
        <img  className="mt-16" src="/leaderboard.png"  width="400px" />
-       <LeaderBoard ipAddress={ipAddress || ""}/>
+       <LeaderBoard countriesVotes={allCountriesVotes} ipAddress={ipAddress || ""}/>
     </main>
   );
 }
