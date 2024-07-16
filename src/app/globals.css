@@ -47,6 +47,11 @@ html {
   @apply text-4xl text-white tracking-wider font-bold mt-11 text-center  m-0
 }
 
+
+.H1 {
+  @apply text-9xl text-white tracking-wider font-bold mt-11 text-center  m-0
+}
+
 .skeleton {
   @apply  bg-gray-200  dark:bg-gray-700 animate-pulse
 }

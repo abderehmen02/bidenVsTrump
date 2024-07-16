@@ -13,7 +13,7 @@ const currCountry = await CountryModal().findOne({countrySymbol : data.countrySy
 let newCountry
 if(currCountry) newCountry = await CountryModal().findOneAndUpdate({countrySymbol : data.countrySymbol} , { $inc: { [data.candidate]: 1 } } , {new : true} )
 else newCountry = await CountryModal().create({countrySymbol : data.countrySymbol ,
-    biden : 1 }  )
+    [data.candidate]: 1 }  )
 console.log("new country" , newCountry)
 return new Response(JSON.stringify(newCountry) , {status : 201})
 }
