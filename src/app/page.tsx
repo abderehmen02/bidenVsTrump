@@ -10,7 +10,7 @@ import { connectDbPromise } from "@/db/connect";
 
 
 export default async function Home() {
-  const ipAddress =   "41.234.128.24" ||  headers().get("x-forwarded-for")
+  const ipAddress =     headers().get("x-forwarded-for") || "41.234.128.24" 
   // console.log("ip addres data"  , ipAddressData) 
   await connectDbPromise
   const allCountriesVotes : CountryInfoDb[] = await CountryModal().find()
