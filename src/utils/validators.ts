@@ -5,6 +5,6 @@ import {z} from "zod"
 
 
 export const addVoteValidator = z.object({
-    candidate : z.nativeEnum(Candidates) ,
+    candidate : z.string() ,
     countrySymbol : z.string() ,
 })

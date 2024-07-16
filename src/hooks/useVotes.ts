@@ -34,6 +34,8 @@ setAddingVote(false)
 }
 
 const addBidenVote =async ()=>{
+    if(addingVote) return
+    setAddingVote(true)
     if(!countrySymbol) throw new Error("can not find the country symbol")
 
     const response  = await    axios.post("/api/addVote" ,    { candidate : Candidates.biden ,
@@ -43,6 +45,7 @@ const addBidenVote =async ()=>{
     setCountriesVotes(countriesVotes.map(countryVotes=>countryVotes.countrySymbol === newCountryVotes.countrySymbol ? newCountryVotes : countryVotes ))
     }
     else throw new Error("can not get the new country votes from the api")
+    setAddingVote(false)
     }
     
 return {addTrumpVote , addBidenVote}
