@@ -43,7 +43,7 @@ const handleBidenClick = ()=>{
     <div className="flex z-10 relative flex-col gap-7" >
     <motion.h4  initial={{y : -300 , opacity : 1}} animate={voteTrumpAnimation} className={cn("H1 absolute top-44 right-0 text-white" , {"hidden" : !votingTrump} )} >+1</motion.h4>
    <img  className="w-[400px]" src="/trumpText.png" />
-   <motion.img animate={rotateTrumpAnimation}   className="w-[400px]" onClick={handleTrumpClick} src="/trumpBody.png" />
+   <motion.img animate={rotateTrumpAnimation}   className="w-[400px] cursor-pointer" onClick={handleTrumpClick} src="/trumpBody.png" />
    </div>
    <div className="z-0 absolute top-1/2 flex  justify-center left-1/2 w-7/12 -translate-x-1/2 -translate-y-1/2" >
    <img src="/vsBg.png" className="absolute z-[1]  opacity-70  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full"  />
@@ -52,7 +52,7 @@ const handleBidenClick = ()=>{
    <div className="flex z-10 relative flex-col gap-7" >
    <motion.h4  initial={{y : -300 , opacity : 1}} animate={voteBidenAnimation} className={cn("H1 absolute top-44 right-0 text-white" , {"hidden" : !votingBiden} )} >+1</motion.h4>
    <img className="w-[400px]" src="/bidenText.png" />
-   <motion.img className="w-[400px]" animate={rotateBidenAnimation} onClick={handleBidenClick} src="/bidenBody.png" />
+   <motion.img className="w-[400px] cursor-pointer" animate={rotateBidenAnimation} onClick={handleBidenClick} src="/bidenBody.png" />
    </div>
 
   </div>

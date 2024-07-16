@@ -6,11 +6,13 @@ import { VotingUi } from "./_components/votingUi";
 import { CountryInfoDb, CountryModal } from "@/db/modals/countryDb";
 import { TotalVotes } from "./_components/totalVotes";
 import { BidenVotes, TrumpVotes } from "./_components/candidates";
+import { connectDbPromise } from "@/db/connect";
 
 
 export default async function Home() {
   const ipAddress =   "41.97.129.253" ||  headers().get("x-forwarded-for")
   // console.log("ip addres data"  , ipAddressData) 
+  await connectDbPromise
   const allCountriesVotes : CountryInfoDb[] = await CountryModal().find()
 
 
