@@ -5,6 +5,7 @@ import { getIpAddressInfo } from "@/utils/ipAddress";
 import { VotingUi } from "./_components/votingUi";
 import { CountryInfoDb, CountryModal } from "@/db/modals/countryDb";
 import { TotalVotes } from "./_components/totalVotes";
+import { BidenVotes, TrumpVotes } from "./_components/candidates";
 
 
 export default async function Home() {
@@ -22,17 +23,9 @@ export default async function Home() {
       <VotingUi/>
       <TotalVotes/>
       <div id="votesComperation" className="flex mt-24 justify-between px-16 w-full items-end " >
-      <div className="flex flex-col gap-7 items-center" >
-       <h4 style={{margin : 0}} className="H4" >Trump Spudz</h4>
-       <h4 style={{margin : 0}} className="H4" >12.325</h4>
-       <button style={{margin : 0}} className="bg-red-500 rounded-xl H4 p-4" >54%</button>
-       </div>
+       <TrumpVotes/>
        <img src="/greaterSign.png" className="w-32" />
-       <div className="flex flex-col gap-7 items-center" >
-       <h4 style={{margin : 0}} className="H4" >Biden Spudz</h4>
-       <h4 style={{margin : 0}} className="H4" >10.253</h4>
-       <button style={{margin : 0}} className="bg-red-500 rounded-xl H4 p-4 " >46%</button>
-      </div>
+        <BidenVotes/>
        </div>
        <img  className="mt-16" src="/leaderboard.png"  width="400px" />
        <LeaderBoard countriesVotes={allCountriesVotes} ipAddress={ipAddress || ""}/>
