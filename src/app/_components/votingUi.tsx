@@ -47,11 +47,11 @@ const handleBidenClick = ()=>{
 
 
 
-    return <div className="flex relative  justify-center lg:gap-36 gap-32 px-14 w-full  z-0 lg:mt-1 mt-11" >
+    return <div className="flex relative  justify-center lg:gap-36 gap-20 px-8 w-full  z-0 lg:mt-1 mt-11" >
     <div className="flex z-10 relative flex-col lg:gap-0 gap-7" >
     <motion.h4  initial={{y : -300 , opacity : 1}} animate={voteTrumpAnimation} className={cn("H1 absolute top-44 right-0 text-white" , {"hidden" : !votingTrump} )} >+1</motion.h4>
-   <img  className="w-[250px] " src="/trumpText.png" />
-   <motion.img animate={rotateTrumpAnimation}   className="w-[300px]  cursor-pointer" onClick={handleTrumpClick} src="/trumpBody.png" />
+   <img  className="w-[300px] lg:w-[250px] " src="/trumpText.png" />
+   <motion.img animate={rotateTrumpAnimation}   className="w-[380px] lg:w-[300px]  cursor-pointer" onClick={handleTrumpClick} src="/trumpBody.png" />
    </div>
    <div className="flex flex-col pt-28 gap-4 items-center " >
    <div className="z-0 absolute top-1/2 flex  justify-center left-1/2 w-7/12 -translate-x-1/2 -translate-y-1/2" >
@@ -62,8 +62,8 @@ const handleBidenClick = ()=>{
    </div> 
    <div className="flex z-10 relative flex-col lg:gap-0 gap-7" >
    <motion.h4  initial={{y : -300 , opacity : 1}} animate={voteBidenAnimation} className={cn("H1 absolute top-44 right-0 text-white" , {"hidden" : !votingBiden} )} >+1</motion.h4>
-   <img className="w-[250px]" src="/bidenText.png" />
-   <motion.img className="w-[300px] cursor-pointer" animate={rotateBidenAnimation} onClick={handleBidenClick} src="/bidenBody.png" />
+   <img className="w-[300px] lg:w-[250px] " src="/bidenText.png" />
+   <motion.img className="w-[380px] lg:w-[300px]  cursor-pointer" animate={rotateBidenAnimation} onClick={handleBidenClick} src="/bidenBody.png" />
    </div>
 
   </div>

@@ -99,7 +99,7 @@ export const LeaderBoard : React.FC<{ipAddress : string  , countriesVotes : Coun
 if(acc.biden + acc.trump < countryVotes.biden+ countryVotes.trump) return countryVotes
 else return acc
      }) : undefined
-    return        <motion.div  initial={{y : 0}} animate={openLeaderboardAnimation} className="bg-white relative  w-[900px]  mt-6  flex flex-col" >
+    return        <motion.div  initial={{y : 0}} animate={openLeaderboardAnimation} className="bg-white relative  w-full  mt-6  flex flex-col" >
     <div className="px-8 py-4  flex items-center justify-between" >
     { greatestCountry ?  <div className="flex gap-1 items-center  " ><div>#1</div>    <img src={`/flags/${greatestCountry.countrySymbol?.trim().toLowerCase()}.png`}  width="50px" />{ greatestCountry.trump + greatestCountry.biden }    </div> : <div className="skeleton w-40 h-8" ></div> }
     <div className="flex gap-4 items-center  " >
