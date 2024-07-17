@@ -48,6 +48,7 @@ export const LeaderBoard : React.FC<{ipAddress : string  , countriesVotes : Coun
     const {getCountriesVotes  , addingVote} = useVotes()
     const [leaderboardOpened , setLeaderboardOpened ] = useState(false)
     const leaderboardContainer = useRef<HTMLDivElement>(null)
+    let totalCountryVotes  : number | undefined ;
      const {data , isLoading} = useQuery<{country : string }>({
         queryKey : [ipAddress]  , 
         queryFn : async  ()=>{ 
@@ -73,7 +74,11 @@ export const LeaderBoard : React.FC<{ipAddress : string  , countriesVotes : Coun
        } , [] )
     
 
-     const openLeaderBoard = ()=>{
+
+       const userCountry = countriesVotes.find(country=>country.countrySymbol === countrySymbol)
+       totalCountryVotes = userCountry ?  userCountry?.biden + userCountry?.trump : undefined
+
+       const openLeaderBoard = ()=>{
         setLeaderboardOpened(true)
         if (leaderboardContainer.current) {
             const height = leaderboardContainer.current.getBoundingClientRect().height;
@@ -86,12 +91,19 @@ export const LeaderBoard : React.FC<{ipAddress : string  , countriesVotes : Coun
         setLeaderboardOpened(false)
         openLeaderboardAnimation.start({y : 0 , transition : { duration : 0.1} } )
      }
+ 
 
+
+     const greatestCountry = countriesVotes.reduce((acc , countryVotes)=>{
+    
+if(acc.biden + acc.trump < countryVotes.biden+ countryVotes.trump) return countryVotes
+else return acc
+     })
     return        <motion.div  initial={{y : 0}} animate={openLeaderboardAnimation} className="bg-white relative  w-[900px]  mt-6  flex flex-col" >
     <div className="px-8 py-4  flex items-center justify-between" >
-    <div></div>
+    <div className="flex gap-1 items-center  " ><div>#1</div>    <img src={`/flags/${greatestCountry.countrySymbol?.trim().toLowerCase()}.png`}  width="50px" />{ greatestCountry.trump + greatestCountry.biden }    </div>
     <div className="flex gap-4 items-center  " >
-    <img src="/flags/ad.png"  width="50px" />12202552
+    <img src={`/flags/${countrySymbol?.trim().toLowerCase()}.png`}  width="50px" />{ totalCountryVotes }
     {leaderboardOpened ? <img onClick={closeLeaderBoard} src="/icons/dropDown.svg " className="w-[25px] rotate-180 cursor-pointer" /> :  <img onClick={openLeaderBoard} src="/icons/dropDown.svg " className="w-[25px] cursor-pointer" />}
     </div>
     </div>
