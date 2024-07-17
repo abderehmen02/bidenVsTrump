@@ -27,7 +27,7 @@ export const TrumpVotes = ()=>{
 
 
 
-    return       <div className="flex flex-col gap-7 items-center" >
+    return       <div className="flex flex-col lg:gap-2 gap-7 items-center" >
     <h4 style={{margin : 0}} className="H4" >Trump Spudz</h4>
     {totalTrumVotes ? <h4 style={{margin : 0}} className="H4" >{totalTrumVotes}</h4> : <div className="skeleton w-24 h-9" ></div> }
     {racio ?  <button style={{margin : 0}} className="bg-red-500 rounded-xl H4 p-4" >{Math.round(racio)}%</button> : <div className="skeleton w-24 h-9" ></div> }
@@ -58,7 +58,7 @@ export const BidenVotes = ()=>{
 
 
 
-    return        <div className="flex flex-col gap-7 items-center" >
+    return        <div className="flex flex-col lg:gap-2 gap-7 items-center" >
     <h4 style={{margin : 0}} className="H4" >Biden Spudz</h4>
     {totalBidenVotes ?  <h4 style={{margin : 0}} className="H4" >{totalBidenVotes}</h4> : <div className="skeleton w-24 h-9" ></div> }
     {racio ?  <button style={{margin : 0}} className="bg-red-500 rounded-xl H4 p-4" >{Math.round(racio)}%</button> : <div className="skeleton w-24 h-9" ></div> }

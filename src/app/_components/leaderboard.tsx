@@ -94,14 +94,14 @@ export const LeaderBoard : React.FC<{ipAddress : string  , countriesVotes : Coun
  
 
 
-     const greatestCountry = countriesVotes.reduce((acc , countryVotes)=>{
+     const greatestCountry : CountryInfoDb | undefined = countriesVotes.length ? countriesVotes?.reduce((acc , countryVotes)=>{
     
 if(acc.biden + acc.trump < countryVotes.biden+ countryVotes.trump) return countryVotes
 else return acc
-     })
+     }) : undefined
     return        <motion.div  initial={{y : 0}} animate={openLeaderboardAnimation} className="bg-white relative  w-[900px]  mt-6  flex flex-col" >
     <div className="px-8 py-4  flex items-center justify-between" >
-    <div className="flex gap-1 items-center  " ><div>#1</div>    <img src={`/flags/${greatestCountry.countrySymbol?.trim().toLowerCase()}.png`}  width="50px" />{ greatestCountry.trump + greatestCountry.biden }    </div>
+    { greatestCountry ?  <div className="flex gap-1 items-center  " ><div>#1</div>    <img src={`/flags/${greatestCountry.countrySymbol?.trim().toLowerCase()}.png`}  width="50px" />{ greatestCountry.trump + greatestCountry.biden }    </div> : <div className="skeleton w-40 h-8" ></div> }
     <div className="flex gap-4 items-center  " >
     <img src={`/flags/${countrySymbol?.trim().toLowerCase()}.png`}  width="50px" />{ totalCountryVotes }
     {leaderboardOpened ? <img onClick={closeLeaderBoard} src="/icons/dropDown.svg " className="w-[25px] rotate-180 cursor-pointer" /> :  <img onClick={openLeaderBoard} src="/icons/dropDown.svg " className="w-[25px] cursor-pointer" />}
