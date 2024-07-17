@@ -2,7 +2,7 @@
 import { useVotes } from "@/hooks/useVotes"
 import { cn } from "@/utils/tailwind"
 import {motion, useAnimation} from "framer-motion"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export const VotingUi = ()=>{
 const {addBidenVote , addTrumpVote} = useVotes()
@@ -12,6 +12,7 @@ const rotateBidenAnimation = useAnimation()
 const voteBidenAnimation = useAnimation()
 const [votingTrump , setVotingTrump ] = useState(false)
 const [votingBiden, setVotingBiden] = useState(false)
+const {getCountriesVotes  , addingVote} = useVotes()
 
 const handleTrumpClick = ()=>{
     setVotingTrump(true)       
@@ -34,7 +35,14 @@ const handleBidenClick = ()=>{
 }
 
 
-
+// useEffect(()=>{
+//     const intervalId =      setInterval(()=>{
+//     getCountriesVotes()
+//     } , 1000)
+//    return ()=>{
+//        clearInterval(intervalId)
+//    }
+//    } , [] )
 
 
 

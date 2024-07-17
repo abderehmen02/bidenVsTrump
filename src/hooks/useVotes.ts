@@ -1,9 +1,10 @@
 "use client"
 import { useCountriesVotesStore } from "@/store/countriesDb"
 import { useCountrySymbolStore } from "@/store/countrySymbol"
+import { useTimeoutStores } from "@/store/intervals"
 import { isCountryInfoDb } from "@/utils/typeGuards"
 import axios from "axios"
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 
 export enum Candidates {
@@ -15,57 +16,57 @@ export enum Candidates {
 export const useVotes = ()=>{
 const {countriesVotes ,setCountriesVotes  } = useCountriesVotesStore()
 const {countrySymbol} = useCountrySymbolStore()
-const [addingVote, setAddingVote] = useState(false)
-const [fetchingCountriesTimout, setFetchingCountriesTimout] = useState("")
+
+const {getCountriesTimeout , addingVote , setAddingVote , setGetCountriesTimeout, setUpdatingCountriesVotesInterval , updatingCountriesVotesInterval } = useTimeoutStores()
+const addingVoteRef = useRef(addingVote)
+const  addTrumpVoteTimeout = useRef<any>(null)
+const addBidenVoteTimout = useRef<any>(null)
+
+useEffect(()=>{
+addingVoteRef.current = addingVote
+} , [addingVote] )
+
+
 
 
 const getCountriesVotes = async  ()=>{
-    const response = await  axios.get(`/api/getCountriesVotes?timestamp=${new Date().getTime()}` )
-    if(response.status === 200)    setCountriesVotes(response.data)
+    if(getCountriesTimeout) clearTimeout(getCountriesTimeout)
+    const timeoutId =  setTimeout( async  ()=>{
+         if(addingVoteRef.current) return 
+        const response = await  axios.get(`/api/getCountriesVotes` )
+        if(response.status === 200 && !addingVoteRef.current  ) {   setCountriesVotes(response.data) }
+ }  , 900)
+  if( timeoutId )setGetCountriesTimeout(timeoutId)
 }
+
+
+
 
 
 const addTrumpVote = async ()=>{
 setAddingVote(true)
-if(fetchingCountriesTimout) clearTimeout(fetchingCountriesTimout)
+clearTimeout(addTrumpVoteTimeout.current)
 if(!countrySymbol) throw new Error("can not find the country symbol")
-
 setCountriesVotes(countriesVotes.map(countryVotes=>countryVotes.countrySymbol === countrySymbol ? ({ ...countryVotes , trump :  countryVotes.trump + 1  }) : countryVotes ))
-
-
 await    axios.post("/api/addVote" ,    { candidate : Candidates.trump ,
     countrySymbol })
-// const newCountryVotes = response.data
-// setCountriesVotes(countriesVotes.map(countryVotes=>countryVotes.countrySymbol === newCountryVotes.countrySymbol ? newCountryVotes : countryVotes ))
-// if(isCountryInfoDb(newCountryVotes)){
-// setCountriesVotes(countriesVotes.map(countryVotes=>countryVotes.countrySymbol === newCountryVotes.countrySymbol ? newCountryVotes : countryVotes ))
-// }
-// else throw new Error("can not get the new country votes from the api")
-const timeoutId = setTimeout( getCountriesVotes , 1000)
-typeof timeoutId === "string" &&  setFetchingCountriesTimout(timeoutId)
-setAddingVote(false)
+const addTrumpVoteTimoutId = setTimeout(()=>{console.log("setting to false" , addingVote ) ; setAddingVote(false)} , 2000 )
+addTrumpVoteTimeout.current = addTrumpVoteTimoutId
 }
 
 const addBidenVote =async ()=>{
     setAddingVote(true)
-    if(fetchingCountriesTimout) clearTimeout(fetchingCountriesTimout)
+    clearTimeout(addBidenVoteTimout.current)
+    // if(fetchingCountriesTimout) clearTimeout(fetchingCountriesTimout)
     if(!countrySymbol) throw new Error("can not find the country symbol")
     setCountriesVotes(countriesVotes.map(countryVotes=>countryVotes.countrySymbol === countrySymbol ? ({ ...countryVotes , biden:  countryVotes.biden + 1  }) : countryVotes ))
-    console.log("coutry symbol , adding votes" , countrySymbol )
-    const response  = await    axios.post("/api/addVote" ,    { candidate : Candidates.biden ,
+     await    axios.post("/api/addVote" ,    { candidate : Candidates.biden ,
         countrySymbol })
-    console.log("response" , response.data)
-    const timeoutId = setTimeout( getCountriesVotes , 1000)
-    typeof timeoutId === "string" &&  setFetchingCountriesTimout(timeoutId)
-    
-    // if(isCountryInfoDb(newCountryVotes)){
-    // setCountriesVotes(countriesVotes.map(countryVotes=>countryVotes.countrySymbol === newCountryVotes.countrySymbol ? newCountryVotes : countryVotes ))
-    // }
-    // else throw new Error("can not get the new country votes from the api")
-    setAddingVote(false)
+    const addBidenVoteTimoutId = setTimeout(()=>{ setAddingVote(false)} , 2000 )
+    addBidenVoteTimout.current = addBidenVoteTimoutId
     }
     
-return {addTrumpVote , getCountriesVotes ,  addingVote , addBidenVote}
+return {addTrumpVote  , getCountriesVotes ,  addingVote , addBidenVote}
 }
 
 

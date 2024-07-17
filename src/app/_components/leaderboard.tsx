@@ -42,11 +42,10 @@ export const CountryVoteUi : React.FC<{countryVotes: CountryInfoDb}> = ({country
 
 
 export const LeaderBoard : React.FC<{ipAddress : string  , countriesVotes : CountryInfoDb[] }> = ({ipAddress , countriesVotes  : initialCountriesVotes })=>{
-    console.log("ip address" , ipAddress)
     const {countrySymbol , setCountrySymbol} = useCountrySymbolStore()
     const { countriesVotes , setCountriesVotes} = useCountriesVotesStore()
     const openLeaderboardAnimation = useAnimation()
-    const {getCountriesVotes , addingVote} = useVotes()
+    const {getCountriesVotes  , addingVote} = useVotes()
     const [leaderboardOpened , setLeaderboardOpened ] = useState(false)
     const leaderboardContainer = useRef<HTMLDivElement>(null)
      const {data , isLoading} = useQuery<{country : string }>({
@@ -55,7 +54,6 @@ export const LeaderBoard : React.FC<{ipAddress : string  , countriesVotes : Coun
         const countrySymbol = localStorage.getItem(appConfig.countryLocalStorageKey)
         if(countrySymbol){ setCountrySymbol(countrySymbol) ; return {country : countrySymbol} }
         const info = await getIpAddressInfo(ipAddress)
-        console.log("info" , info)
         localStorage.setItem(appConfig.countryLocalStorageKey , info.country)
         setCountrySymbol(info.country)
         return info
@@ -65,11 +63,15 @@ export const LeaderBoard : React.FC<{ipAddress : string  , countriesVotes : Coun
 
 
     useEffect(()=>{
-     setCountriesVotes(initialCountriesVotes) ;
-     setInterval(()=>{
-        if(!addingVote) getCountriesVotes()
-     })
-    } , [] )
+        setCountriesVotes(initialCountriesVotes) ;
+        const intervalId =      setInterval(()=>{
+        getCountriesVotes()
+        } , 1000)
+       return ()=>{
+           clearInterval(intervalId)
+       }
+       } , [] )
+    
 
      const openLeaderBoard = ()=>{
         setLeaderboardOpened(true)
