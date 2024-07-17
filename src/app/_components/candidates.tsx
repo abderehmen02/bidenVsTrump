@@ -2,14 +2,27 @@
 import { useCountriesVotesStore } from "@/store/countriesDb"
 import { cn } from "@/utils/tailwind";
 import {motion, useAnimation} from "framer-motion"
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+
+
+
 export const TrumpVotes = ()=>{
     const {countriesVotes} = useCountriesVotesStore()
+    let racio : number | undefined ;
     let totalTrumVotes : number | undefined ;
-
+    let totalVotes : number | undefined  ;
+    for(let i = 0 ; i< countriesVotes.length ; i++){
+        totalVotes = (totalVotes || 0) + (countriesVotes[i].biden + countriesVotes[i].trump)
+    }
 
      for(let i = 0 ; i < countriesVotes.length ; i++){
         totalTrumVotes = (totalTrumVotes || 0 ) +  countriesVotes[i].trump
+     }
+
+     
+
+     if(totalTrumVotes && totalVotes){
+       racio = (totalTrumVotes / totalVotes) * 100
      }
 
 
@@ -17,7 +30,7 @@ export const TrumpVotes = ()=>{
     return       <div className="flex flex-col gap-7 items-center" >
     <h4 style={{margin : 0}} className="H4" >Trump Spudz</h4>
     {totalTrumVotes ? <h4 style={{margin : 0}} className="H4" >{totalTrumVotes}</h4> : <div className="skeleton w-24 h-9" ></div> }
-    <button style={{margin : 0}} className="bg-red-500 rounded-xl H4 p-4" >54%</button>
+    {racio ?  <button style={{margin : 0}} className="bg-red-500 rounded-xl H4 p-4" >{Math.round(racio)}%</button> : <div className="skeleton w-24 h-9" ></div> }
     </div>
 }
 
@@ -26,18 +39,29 @@ export const BidenVotes = ()=>{
     const {countriesVotes} = useCountriesVotesStore()
 
     let totalBidenVotes : number | undefined ; ;
-
+    let racio   : number | undefined ;
+    let totalVotes : number | undefined  ;
+    for(let i = 0 ; i< countriesVotes.length ; i++){
+        totalVotes = (totalVotes || 0) + (countriesVotes[i].biden + countriesVotes[i].trump)
+    }
 
      for(let i = 0 ; i < countriesVotes.length ; i++){
         totalBidenVotes = (totalBidenVotes || 0 ) + countriesVotes[i].biden
      }
 
 
+     
+     if(totalBidenVotes && totalVotes){
+        racio = (totalBidenVotes / totalVotes) * 100
+      }
+ 
+
+
 
     return        <div className="flex flex-col gap-7 items-center" >
     <h4 style={{margin : 0}} className="H4" >Biden Spudz</h4>
     {totalBidenVotes ?  <h4 style={{margin : 0}} className="H4" >{totalBidenVotes}</h4> : <div className="skeleton w-24 h-9" ></div> }
-    <button style={{margin : 0}} className="bg-red-500 rounded-xl H4 p-4 " >46%</button>
+    {racio ?  <button style={{margin : 0}} className="bg-red-500 rounded-xl H4 p-4" >{Math.round(racio)}%</button> : <div className="skeleton w-24 h-9" ></div> }
    </div>
 }
 
