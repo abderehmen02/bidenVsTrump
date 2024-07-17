@@ -51,8 +51,9 @@ clearTimeout(addTrumpVoteTimeout.current)
 if(!countrySymbol) throw new Error("can not find the country symbol")
 setCountriesVotes(countriesVotes.map(countryVotes=>countryVotes.countrySymbol === countrySymbol ? ({ ...countryVotes , trump :  countryVotes.trump + 1  }) : countryVotes ))
 console.log("info" , Candidates.trump , countrySymbol)
-await    axios.post("/api/addVote" ,    { candidate : Candidates.trump ,
+const response = await    axios.post("/api/addVote" ,    { candidate : Candidates.trump ,
     countrySymbol })
+console.log("rsponse" , response)
 const addTrumpVoteTimoutId = setTimeout(()=>{console.log("setting to false" , addingVote ) ; setAddingVote(false)} , 2000 )
 addTrumpVoteTimeout.current = addTrumpVoteTimoutId
 }
