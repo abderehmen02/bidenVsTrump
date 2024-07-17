@@ -41,6 +41,7 @@ export const CountryVoteUi : React.FC<{countryVotes: CountryInfoDb}> = ({country
 
 
 export const LeaderBoard : React.FC<{ipAddress : string  , countriesVotes : CountryInfoDb[] }> = ({ipAddress , countriesVotes  : initialCountriesVotes })=>{
+    console.log("ip address" , ipAddress)
     const {countrySymbol , setCountrySymbol} = useCountrySymbolStore()
     const { countriesVotes , setCountriesVotes} = useCountriesVotesStore()
     const openLeaderboardAnimation = useAnimation()
