@@ -33,8 +33,9 @@ const getCountriesVotes = async  ()=>{
     if(getCountriesTimeout) clearTimeout(getCountriesTimeout)
     const timeoutId =  setTimeout( async  ()=>{
          if(addingVoteRef.current) return 
-        const response = await  axios.get(`/api/getCountriesVotes` )
-        if(response.status === 200 && !addingVoteRef.current  ) {   setCountriesVotes(response.data) }
+        const response = await  fetch(`/api/getCountriesVotes` , {cache : "no-cache"} )
+        const data = await response.json()
+        if(response.status === 200 && !addingVoteRef.current  ) {   setCountriesVotes(data) }
  }  , 900)
   if( timeoutId )setGetCountriesTimeout(timeoutId)
 }
