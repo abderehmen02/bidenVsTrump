@@ -35,6 +35,7 @@ const getCountriesVotes = async  ()=>{
          if(addingVoteRef.current) return 
         const response = await  fetch(`/api/getCountriesVotes` , {cache : "no-cache"} )
         const data = await response.json()
+        console.log("data" , data)
         if(response.status === 200 && !addingVoteRef.current  ) {   setCountriesVotes(data) }
  }  , 900)
   if( timeoutId )setGetCountriesTimeout(timeoutId)
