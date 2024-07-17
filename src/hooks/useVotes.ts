@@ -51,6 +51,7 @@ const addBidenVote =async ()=>{
     if(fetchingCountriesTimout) clearTimeout(fetchingCountriesTimout)
     if(!countrySymbol) throw new Error("can not find the country symbol")
     setCountriesVotes(countriesVotes.map(countryVotes=>countryVotes.countrySymbol === countrySymbol ? ({ ...countryVotes , biden:  countryVotes.biden + 1  }) : countryVotes ))
+    console.log("coutry symbol , adding votes" , countrySymbol )
     const response  = await    axios.post("/api/addVote" ,    { candidate : Candidates.biden ,
         countrySymbol })
     const timeoutId = setTimeout( getCountriesVotes , 1000)
