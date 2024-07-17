@@ -38,6 +38,12 @@ html {
   }
 }
 
+
+.H7 {
+  @apply text-xl text-white tracking-wider font-bold mt-11 text-center m-0
+}
+
+
 .H6 {
   @apply text-2xl text-white tracking-wider font-bold mt-11 text-center m-0
 }
