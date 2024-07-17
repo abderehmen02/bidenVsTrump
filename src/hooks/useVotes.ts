@@ -20,7 +20,7 @@ const [fetchingCountriesTimout, setFetchingCountriesTimout] = useState("")
 
 
 const getCountriesVotes = async  ()=>{
-    const response = await  axios.get("/api/getCountriesVotes")
+    const response = await  axios.get(`/api/getCountriesVotes?timestamp=${new Date().getTime()}` )
     if(response.status === 200)    setCountriesVotes(response.data)
 }
 
@@ -65,7 +65,7 @@ const addBidenVote =async ()=>{
     setAddingVote(false)
     }
     
-return {addTrumpVote , addBidenVote}
+return {addTrumpVote , getCountriesVotes ,  addingVote , addBidenVote}
 }
 
 

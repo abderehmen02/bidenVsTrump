@@ -8,6 +8,7 @@ import { appConfig } from "@/config"
 import { useCountrySymbolStore } from "@/store/countrySymbol"
 import { CountryInfoDb } from "@/db/modals/countryDb"
 import { useCountriesVotesStore } from "@/store/countriesDb"
+import { useVotes } from "@/hooks/useVotes"
 
 
 export const CountryVoteUi : React.FC<{countryVotes: CountryInfoDb}> = ({countryVotes})=>{
@@ -45,6 +46,7 @@ export const LeaderBoard : React.FC<{ipAddress : string  , countriesVotes : Coun
     const {countrySymbol , setCountrySymbol} = useCountrySymbolStore()
     const { countriesVotes , setCountriesVotes} = useCountriesVotesStore()
     const openLeaderboardAnimation = useAnimation()
+    const {getCountriesVotes , addingVote} = useVotes()
     const [leaderboardOpened , setLeaderboardOpened ] = useState(false)
     const leaderboardContainer = useRef<HTMLDivElement>(null)
      const {data , isLoading} = useQuery<{country : string }>({
@@ -63,7 +65,10 @@ export const LeaderBoard : React.FC<{ipAddress : string  , countriesVotes : Coun
 
 
     useEffect(()=>{
-     setCountriesVotes(initialCountriesVotes)
+     setCountriesVotes(initialCountriesVotes) ;
+     setInterval(()=>{
+        if(!addingVote) getCountriesVotes()
+     })
     } , [] )
 
      const openLeaderBoard = ()=>{
