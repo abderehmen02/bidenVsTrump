@@ -54,6 +54,7 @@ const addBidenVote =async ()=>{
     console.log("coutry symbol , adding votes" , countrySymbol )
     const response  = await    axios.post("/api/addVote" ,    { candidate : Candidates.biden ,
         countrySymbol })
+    console.log("response" , response.data)
     const timeoutId = setTimeout( getCountriesVotes , 1000)
     typeof timeoutId === "string" &&  setFetchingCountriesTimout(timeoutId)
     
