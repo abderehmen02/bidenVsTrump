@@ -4,6 +4,8 @@ import { cn } from "@/utils/tailwind"
 import {motion, useAnimation} from "framer-motion"
 import React, { useEffect, useRef, useState } from "react"
 import { TotalVotes } from "./totalVotes"
+import { useMyVotesStore } from "@/store/myVotes"
+import { MyVotesSection } from "./myVotesSection"
 
 export const VotingUi = ()=>{
 const {addBidenVote , addTrumpVote} = useVotes()
@@ -17,13 +19,16 @@ const [trumpVoteAnimations , setTrumpVoteAnimations ] = useState<{element : Reac
 const [bidenVoteAnimations , setBidenVoteAnimations ] = useState<{element : React.ReactNode , key : number }[]>([])
 const trumpAnimationsKey = useRef<number>(0)
 const bidenAnimationsKey = useRef(0)
+const {increaseTrump , increaseBiden} = useMyVotesStore()
 const {getCountriesVotes  , addingVote} = useVotes()
 
 
 const handleTrumpClick = ()=>{
+    
     let clickSound = new Audio("/spudzSound.mp3")
     clickSound.play()
    addTrumpVote()
+   increaseTrump()
     trumpAnimationsKey.current += 1 ;
     setTrumpVoteAnimations((animations)=>([ ...animations , {element  : <motion.h4  className={cn("H1 absolute top-10 right-0 text-white"  )} transition={{duration : 1}} initial={{y  : -300 , zIndex : 50 , opacity : 1 }} animate={{y : 0  , zIndex :-50 , opacity : [1,1,0.5,0]}} >+1</motion.h4> , key : trumpAnimationsKey.current  }]))
 
@@ -38,6 +43,7 @@ const handleBidenClick = ()=>{
     let clickSound = new Audio("/spudzSound.mp3")
     clickSound.play()   
     setVotingBiden(true)
+    increaseBiden()
     addBidenVote()
     bidenAnimationsKey.current += 1 ;
     setBidenVoteAnimations((animations)=>([ ...animations , {element  : <motion.h4  className={cn("H1 absolute top-10 right-0 text-white"  )} transition={{duration : 1}} initial={{y  : -300 , zIndex : 50 , opacity : 1 }} animate={{y : 0  , zIndex :-50 , opacity : [1,1,0.5,0]}} >+1</motion.h4> , key : bidenAnimationsKey.current  }]))
@@ -55,7 +61,7 @@ const handleBidenClick = ()=>{
 
 
 
-    return <div className="flex relative  justify-center lg:gap-36 gap-20 px-8 w-full  z-0 lg:mt-1 mt-11" >
+    return <div className="flex relative  justify-center lg:gap-36 gap-20 px-8 w-full  z-0 lg:mt-1 mt-2" >
     <div className="flex z-10 relative flex-col lg:gap-0 gap-7" >
    <div> {trumpVoteAnimations.map(animation=>animation.element)}</div>
    <img  className="w-[300px] lg:w-[250px] " src="/trumpText.png" />
@@ -67,7 +73,10 @@ const handleBidenClick = ()=>{
    <img src="/vs.png"  className="z-[2]  w-[180px] -translate-y-24" />
    </div>
    <div className="hidden lg:block" ><TotalVotes/></div>
+   <div className="hidden lg:block" ><MyVotesSection/></div>
+
    </div> 
+
    <div className="flex z-10 relative flex-col lg:gap-0 gap-7" >
    <div> {bidenVoteAnimations.map(animation=>animation.element)}</div>
    <img className="w-[300px] lg:w-[250px] " src="/bidenText.png" />

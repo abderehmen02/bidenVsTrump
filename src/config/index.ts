@@ -1,3 +1,4 @@
 export const appConfig = {
-    countryLocalStorageKey : "countrySymbol"
+    countryLocalStorageKey : "countrySymbol" ,
+    myVotesLocalStorageKey : "myVotes"
 }

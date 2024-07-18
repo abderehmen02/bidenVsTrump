@@ -105,12 +105,12 @@ else return acc
     <div className="flex gap-4 items-center  " >
     <img src={`/flags/${countrySymbol?.trim().toLowerCase()}.png`}  width="50px" />
     <h6 className="H7" style={{margin : 0 , color : "black"}}>{ totalCountryVotes || 0 }</h6>
-    {leaderboardOpened ? <img onClick={closeLeaderBoard} src="/icons/dropDown.svg " className="w-[25px] rotate-180 cursor-pointer" /> :  <img onClick={openLeaderBoard} src="/icons/dropDown.svg " className="w-[25px] cursor-pointer" />}
+    {leaderboardOpened ? <img onClick={closeLeaderBoard} src="/icons/dropDown.svg " className="w-[25px] rotate-180 cursor-pointer" /> :  <div className="relative"  ><img className="absolute -left-10 -top-20 min-w-[100px] min-h-[100]"  src="/clickAnimation.gif" /> <img onClick={openLeaderBoard} src="/icons/dropDown.svg " className="w-[25px]  z-50 relative cursor-pointer" /></div>}
     </div>
     </div>
-    <div ref={leaderboardContainer} className="flex bg-white flex-col absolute top-16 w-full gap-3" >
+    <div ref={leaderboardContainer} className="flex max-h-[70vh] overflow-scroll bg-white flex-col absolute top-16 w-full gap-3" >
     {
-        countriesVotes.map(countryVote=><CountryVoteUi key={countryVote.countrySymbol} countryVotes={countryVote} />)
+        countriesVotes.sort((countryB, countryA)=>((countryA.trump + countryA.biden) - (countryB.trump + countryB.biden)) ).map(countryVote=><CountryVoteUi key={countryVote.countrySymbol} countryVotes={countryVote} />)
     } 
     </div>
    </motion.div>

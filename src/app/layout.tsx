@@ -21,7 +21,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-   <body className="flex flex-col justify-center  items-center lg:pt-2 pt-16  bg-black w-full h-full">
+   <body className="flex flex-col justify-center  items-center lg:pt-2 pt-1  bg-black w-full h-full">
     <AppProvider>{children}</AppProvider>
     </body>
     </html>
