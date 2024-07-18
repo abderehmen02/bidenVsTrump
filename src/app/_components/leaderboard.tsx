@@ -96,7 +96,6 @@ export const LeaderBoard : React.FC<{ipAddress : string  , countriesVotes : Coun
 
 
      const greatestCountry : CountryInfoDb | undefined = countriesVotes.length ? countriesVotes?.reduce((acc , countryVotes)=>{
-console.log("country symbol" , countrySymbol)
 if(acc.biden + acc.trump < countryVotes.biden+ countryVotes.trump) return countryVotes
 else return acc
      }) : undefined
