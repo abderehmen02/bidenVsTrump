@@ -11,7 +11,7 @@ import { MyVotesSection } from "./_components/myVotesSection";
 
 
 export default async function Home() {
-  const ipAddress =    "5.52.192.88" || headers().get("x-forwarded-for") 
+  const ipAddress =     headers().get("x-forwarded-for") 
   // console.log("ip addres data"  , ipAddressData) 
   await connectDbPromise
   const allCountriesVotes : CountryInfoDb[] = await CountryModal().find()
