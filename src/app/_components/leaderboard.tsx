@@ -52,7 +52,6 @@ export const LeaderBoard : React.FC<{ipAddress : string  , countriesVotes : Coun
      const {data , isLoading} = useQuery<{country : string }>({
         queryKey : [ipAddress]  , 
         queryFn : async  ()=>{ 
-        localStorage.clear()
         // const countrySymbol = localStorage.getItem(appConfig.countryLocalStorageKey)
         // if(countrySymbol){ setCountrySymbol(countrySymbol) ; return {country : countrySymbol} }
         const info = await getIpAddressInfo(ipAddress)
@@ -99,7 +98,7 @@ export const LeaderBoard : React.FC<{ipAddress : string  , countriesVotes : Coun
 if(acc.biden + acc.trump < countryVotes.biden+ countryVotes.trump) return countryVotes
 else return acc
      }) : undefined
-    return        <motion.div  initial={{y : 0}} animate={openLeaderboardAnimation} className="bg-white relative  w-full  mt-6  flex flex-col" >
+    return        <motion.div  initial={{y : 0}} animate={openLeaderboardAnimation} className="bg-white relative  w-full  mt-4  flex flex-col" >
     <div className="px-8 py-4  flex items-center justify-between" >
     { greatestCountry ?  <div className="flex gap-1 items-center  " ><h4 style={{margin : 0 , color : "black" }} className="H7" >#1</h4>    <img src={`/flags/${greatestCountry.countrySymbol?.trim().toLowerCase()}.png`}  width="50px" /><h6 className="H7" style={{margin : 0 , color : "black"}} >{ greatestCountry.trump + greatestCountry.biden }</h6>    </div> : <div className="skeleton w-40 h-8" ></div> }
     <div className="flex gap-4 items-center  " >
