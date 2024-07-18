@@ -2,7 +2,7 @@
 import { useVotes } from "@/hooks/useVotes"
 import { cn } from "@/utils/tailwind"
 import {motion, useAnimation} from "framer-motion"
-import { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { TotalVotes } from "./totalVotes"
 
 export const VotingUi = ()=>{
@@ -13,16 +13,23 @@ const rotateBidenAnimation = useAnimation()
 const voteBidenAnimation = useAnimation()
 const [votingTrump , setVotingTrump ] = useState(false)
 const [votingBiden, setVotingBiden] = useState(false)
+const [trumpVoteAnimations , setTrumpVoteAnimations ] = useState<{element : React.ReactNode , key : number }[]>([])
+const [bidenVoteAnimations , setBidenVoteAnimations ] = useState<React.ReactNode[]>([])
+const trumpAnimationsKey = useRef<number>(0)
+const bidenAnimationsKey = useRef(0)
 const {getCountriesVotes  , addingVote} = useVotes()
 
 const handleTrumpClick = ()=>{
     setVotingTrump(true)       
     addTrumpVote()
-    if(votingTrump) return 
-    voteTrumpAnimation.start({y : -0, opacity : 1, transition : {duration : 0.3} }).then(()=>{setVotingTrump(false)
-        voteTrumpAnimation.start({y : -300 ,  transition : {duration : 0}})
-    })
-    rotateTrumpAnimation.start({rotate : [ 10 , -10 , 0  ]  , transition : {duration :1 } })
+    trumpAnimationsKey.current += 1 ;
+    trumpVoteAnimations.push({element  : <motion.h4  className={cn("H1 absolute top-10 right-0 text-white"  )} transition={{duration : 1}} initial={{y  : -300 , zIndex : 50 , opacity : 1 }} animate={{y : 0  , zIndex :-50 , opacity : [1,1,0.5,0]}} >+1</motion.h4> , key : trumpAnimationsKey.current  })
+
+    // if(votingTrump) return 
+    // voteTrumpAnimation.start({y : -0, opacity : 1, transition : {duration : 0.3} }).then(()=>{setVotingTrump(false)
+    //     voteTrumpAnimation.start({y : -300 ,  transition : {duration : 0}})
+    // })
+    // rotateTrumpAnimation.start({rotate : [ 10 , -10 , 0  ]  , transition : {duration :1 } })
 }
 
 const handleBidenClick = ()=>{
@@ -49,7 +56,7 @@ const handleBidenClick = ()=>{
 
     return <div className="flex relative  justify-center lg:gap-36 gap-20 px-8 w-full  z-0 lg:mt-1 mt-11" >
     <div className="flex z-10 relative flex-col lg:gap-0 gap-7" >
-    <motion.h4  initial={{y : -300 , opacity : 1}} animate={voteTrumpAnimation} className={cn("H1 absolute top-10 right-0 text-white" , {"hidden" : !votingTrump} )} >+1</motion.h4>
+   <div> {trumpVoteAnimations.map(animation=>animation.element)}</div>
    <img  className="w-[300px] lg:w-[250px] " src="/trumpText.png" />
    <motion.img animate={rotateTrumpAnimation}   className="w-[380px] lg:w-[300px]  cursor-pointer" onClick={handleTrumpClick} src="/trumpBody.png" />
    </div>
@@ -61,7 +68,7 @@ const handleBidenClick = ()=>{
    <div className="hidden lg:block" ><TotalVotes/></div>
    </div> 
    <div className="flex z-10 relative flex-col lg:gap-0 gap-7" >
-   <motion.h4  initial={{y : -300 , opacity : 1}} animate={voteBidenAnimation} className={cn("H1 absolute top-10 right-0 text-white" , {"hidden" : !votingBiden} )} >+1</motion.h4>
+   <div> <motion.h4  initial={{y : -300 , opacity : 1}} animate={voteBidenAnimation} className={cn("H1 absolute top-10 right-0 text-white" , {"hidden" : !votingBiden} )} >+1</motion.h4></div>
    <img className="w-[300px] lg:w-[250px] " src="/bidenText.png" />
    <motion.img className="w-[380px] lg:w-[300px]  cursor-pointer" animate={rotateBidenAnimation} onClick={handleBidenClick} src="/bidenBody.png" />
    </div>
