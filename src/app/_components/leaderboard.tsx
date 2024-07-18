@@ -53,8 +53,8 @@ export const LeaderBoard : React.FC<{ipAddress : string  , countriesVotes : Coun
         queryKey : [ipAddress]  , 
         queryFn : async  ()=>{ 
         localStorage.clear()
-        const countrySymbol = localStorage.getItem(appConfig.countryLocalStorageKey)
-        if(countrySymbol){ setCountrySymbol(countrySymbol) ; return {country : countrySymbol} }
+        // const countrySymbol = localStorage.getItem(appConfig.countryLocalStorageKey)
+        // if(countrySymbol){ setCountrySymbol(countrySymbol) ; return {country : countrySymbol} }
         const info = await getIpAddressInfo(ipAddress)
         localStorage.setItem(appConfig.countryLocalStorageKey , info.country)
         setCountrySymbol(info.country)
