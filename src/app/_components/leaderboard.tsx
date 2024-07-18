@@ -25,14 +25,14 @@ export const CountryVoteUi : React.FC<{countryVotes: CountryInfoDb}> = ({country
      <h6 style={{color : "black" , margin: 0}} className="H6" >{countryVotes.trump}</h6>
 
     <img  src="/trumpBody.png" className="w-[40px]" />
-    <h4 style={{color : "black" , margin: 0}} className="H6" >Trump</h4>
+    <h4 style={{color : "black" , margin: 0}} className="H6 hidden lg:block" >Trump</h4>
 
      </div>
      <div className="w-full flex items-center justify-end gap-2 " >
      <h6 style={{color : "black" , margin: 0}} className="H6 " > {countryVotes.biden}</h6>
 
     <img  src="/bidenBody.png" className="w-[40px]" />
-    <h4 style={{color : "black" , margin: 0}} className="H6" >Biden</h4>
+    <h4 style={{color : "black" , margin: 0}} className="H6 hidden lg:block" >Biden</h4>
 
      </div>
     </div>

@@ -45,7 +45,7 @@ html {
 
 
 .H6 {
-  @apply text-2xl text-white tracking-wider font-bold mt-11 text-center m-0 leading-none
+  @apply text-sm lg:text-2xl text-white tracking-wider font-bold mt-11 text-center m-0 leading-none
 }
 
 
