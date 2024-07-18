@@ -19,9 +19,11 @@ const trumpAnimationsKey = useRef<number>(0)
 const bidenAnimationsKey = useRef(0)
 const {getCountriesVotes  , addingVote} = useVotes()
 
+
 const handleTrumpClick = ()=>{
-    setVotingTrump(true)       
-    addTrumpVote()
+    let clickSound = new Audio("/spudzSound.mp3")
+    clickSound.play()
+   addTrumpVote()
     trumpAnimationsKey.current += 1 ;
     setTrumpVoteAnimations((animations)=>([ ...animations , {element  : <motion.h4  className={cn("H1 absolute top-10 right-0 text-white"  )} transition={{duration : 1}} initial={{y  : -300 , zIndex : 50 , opacity : 1 }} animate={{y : 0  , zIndex :-50 , opacity : [1,1,0.5,0]}} >+1</motion.h4> , key : trumpAnimationsKey.current  }]))
 
@@ -33,6 +35,8 @@ const handleTrumpClick = ()=>{
 }
 
 const handleBidenClick = ()=>{
+    let clickSound = new Audio("/spudzSound.mp3")
+    clickSound.play()   
     setVotingBiden(true)
     addBidenVote()
     bidenAnimationsKey.current += 1 ;
