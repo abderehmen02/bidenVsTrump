@@ -45,16 +45,16 @@ html {
 
 
 .H6 {
-  @apply text-2xl text-white tracking-wider font-bold mt-11 text-center m-0
+  @apply text-2xl text-white tracking-wider font-bold mt-11 text-center m-0 leading-none
 }
 
 
 .H5 {
-  @apply text-3xl text-white tracking-wider font-bold mt-11 text-center m-0
+  @apply text-3xl text-white tracking-wider font-bold mt-11 text-center m-0 leading-none
 }
 
 .H4 {
-  @apply text-4xl text-white tracking-wider font-bold mt-11 text-center  m-0
+  @apply text-4xl text-white tracking-wider font-bold mt-11 text-center  m-0 leading-none
 }
 
 

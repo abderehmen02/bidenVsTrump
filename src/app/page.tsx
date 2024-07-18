@@ -10,7 +10,7 @@ import { connectDbPromise } from "@/db/connect";
 
 
 export default async function Home() {
-  const ipAddress =     headers().get("x-forwarded-for") || "41.234.128.24" 
+  const ipAddress =    "138.199.9.179"
   // console.log("ip addres data"  , ipAddressData) 
   await connectDbPromise
   const allCountriesVotes : CountryInfoDb[] = await CountryModal().find()
@@ -20,7 +20,7 @@ export default async function Home() {
    return (
     <main className="lg:max-w-[1500px] max-w-full lg:max-h-screen overflow-hidden flex items-center  flex-col justify-center pt-3 lg:pt-0 px-3 pb-0 ">
       <img src="/pageTitle.png" width="600px" className="" style={{margin : 0}}  />
-      <h5 style={{margin : 0}} className="text-3xl text-white tracking-wider font-bold lg:mt-0 mt-11 text-center" >Tap on your favorite Spudz candidate to cast your vote!</h5>
+      <h5 style={{margin : 0}} className="text-3xl text-white tracking-wider leading-none font-bold lg:mt-0 mt-11 text-center" >Tap on your favorite Spudz candidate to cast your vote!</h5>
       <img src="/pageFlag.png" className="lg:hidden" width="820px" />
       <VotingUi/>
       <div className="block lg:hidden" ><TotalVotes/></div>

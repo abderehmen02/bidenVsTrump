@@ -17,7 +17,7 @@ export  type  CountryInfoDb = {
 
 
 const CountrySchema = new mongoose.Schema<CountryInfoDb>({
-    countrySymbol : {type : String  , required : true} ,
+    countrySymbol : {type : String  , required : true , unique : true} ,
     biden : {type : Number  , default : 0} ,
     trump : {type : Number  , default : 0} ,
    });

@@ -56,7 +56,7 @@ const handleBidenClick = ()=>{
    <div className="flex flex-col pt-28 gap-4 items-center " >
    <div className="z-0 absolute top-1/2 flex  justify-center left-1/2 w-7/12 -translate-x-1/2 -translate-y-1/2" >
    <img src="/vsBg.png" className="absolute z-[1]  lg:hidden opacity-70  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full"  />
-   <img src="/vs.png"  className="z-[2] h-fit w-[180px] -translate-y-24" />
+   <img src="/vs.png"  className="z-[2]  w-[180px] -translate-y-24" />
    </div>
    <div className="hidden lg:block" ><TotalVotes/></div>
    </div> 

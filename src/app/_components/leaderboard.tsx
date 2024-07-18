@@ -105,7 +105,7 @@ else return acc
     { greatestCountry ?  <div className="flex gap-1 items-center  " ><h4 style={{margin : 0 , color : "black" }} className="H7" >#1</h4>    <img src={`/flags/${greatestCountry.countrySymbol?.trim().toLowerCase()}.png`}  width="50px" /><h6 className="H7" style={{margin : 0 , color : "black"}} >{ greatestCountry.trump + greatestCountry.biden }</h6>    </div> : <div className="skeleton w-40 h-8" ></div> }
     <div className="flex gap-4 items-center  " >
     <img src={`/flags/${countrySymbol?.trim().toLowerCase()}.png`}  width="50px" />
-    <h6 className="H7" style={{margin : 0 , color : "black"}}>{ totalCountryVotes }</h6>
+    <h6 className="H7" style={{margin : 0 , color : "black"}}>{ totalCountryVotes || 0 }</h6>
     {leaderboardOpened ? <img onClick={closeLeaderBoard} src="/icons/dropDown.svg " className="w-[25px] rotate-180 cursor-pointer" /> :  <img onClick={openLeaderBoard} src="/icons/dropDown.svg " className="w-[25px] cursor-pointer" />}
     </div>
     </div>
