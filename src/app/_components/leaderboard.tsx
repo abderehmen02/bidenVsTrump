@@ -11,12 +11,25 @@ import { useCountriesVotesStore } from "@/store/countriesDb"
 import { useVotes } from "@/hooks/useVotes"
 
 
-export const CountryVoteUi : React.FC<{countryVotes: CountryInfoDb}> = ({countryVotes})=>{
+export const CountryVoteUi : React.FC<{countryVotes: CountryInfoDb  , index : number }> = ({countryVotes , index})=>{
 
     const countryName = countryLookUp.byInternet(countryVotes?.countrySymbol || "" )?.country || ""
-
+    let medalSrcImg = "" ;
+    switch (index) {
+        case 0:
+        medalSrcImg = "/gold.png"
+            break;
+            case 1:
+                medalSrcImg = "/silver.png"
+                    break;
+                    case 2:
+                        medalSrcImg = "/bronze.png"
+                            break;
+                
+    }
     return <div className="w-full flex items-center  px-4" >   
-    <div  className="flex items-center  gap-3" >
+    <div  className="flex items-center  gap-3 " >
+    {medalSrcImg ? <img src={medalSrcImg} alt="medal" className="w-[50px]" /> :  <h3 className="text-2xl font-bold "  >#{index  }</h3>}
     <img src={`/flags/${countryVotes.countrySymbol.trim().toLocaleLowerCase()}.png`} className="w-[74px] border border-black " />
     <h4 style={{color : "black" , margin: 0}} className="H6" >{countryName}</h4>
     </div>
@@ -109,7 +122,7 @@ else return acc
     </div>
     <div ref={leaderboardContainer} className="flex max-h-[70vh] overflow-scroll bg-white flex-col absolute top-16 w-full gap-3" >
     {
-        countriesVotes.sort((countryB, countryA)=>((countryA.trump + countryA.biden) - (countryB.trump + countryB.biden)) ).map(countryVote=><CountryVoteUi key={countryVote.countrySymbol} countryVotes={countryVote} />)
+        countriesVotes.sort((countryB, countryA)=>((countryA.trump + countryA.biden) - (countryB.trump + countryB.biden)) ).map((countryVote , index )=><CountryVoteUi key={countryVote.countrySymbol} index={index} countryVotes={countryVote} />)
     } 
     </div>
    </motion.div>
