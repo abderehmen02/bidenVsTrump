@@ -29,7 +29,7 @@ export const TrumpVotes = ()=>{
 
     return       <div className="flex flex-col lg:gap-2 gap-7 items-center" >
     <h4 style={{margin : 0}} className="H4" >Haris Spudz</h4>
-    {totalTrumVotes ? <h4 style={{margin : 0}} className="H4" >{totalTrumVotes}</h4> : <div className="skeleton w-24 h-9" ></div> }
+    {totalTrumVotes ? <h4 style={{margin : 0}} className="H4" >{totalTrumVotes.toLocaleString()}</h4> : <div className="skeleton w-24 h-9" ></div> }
     {racio ?  <button style={{margin : 0}} className="bg-red-500 rounded-xl H4 p-4" >{racio.toFixed(2)}%</button> : <div className="skeleton w-32 h-20" ></div> }
     </div>
 }
@@ -60,7 +60,7 @@ export const BidenVotes = ()=>{
 
     return        <div className="flex flex-col lg:gap-2 gap-7 items-center" >
     <h4 style={{margin : 0}} className="H4" >Biden Spudz</h4>
-    {totalBidenVotes ?  <h4 style={{margin : 0}} className="H4" >{totalBidenVotes}</h4> : <div className="skeleton w-24 h-9" ></div> }
+    {totalBidenVotes ?  <h4 style={{margin : 0}} className="H4" >{totalBidenVotes.toLocaleString()}</h4> : <div className="skeleton w-24 h-9" ></div> }
     {racio ?  <button style={{margin : 0}} className="bg-red-500 rounded-xl H4 p-4" >{racio.toFixed(2)}%</button> : <div className="skeleton w-32 h-20" ></div>  }
    </div>
 }

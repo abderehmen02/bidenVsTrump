@@ -11,12 +11,12 @@ export const TotalVotes = ()=>{
 
     return      <><div id="totalVotes" className="flex lg:hidden flex-col items-center gap-1 mt-9" >
     <h4 className="H4 " style={{margin : 0}} >Total Votes</h4>
-    {totalVotes ?   <h4 className="H4 " style={{margin : 0}}>{totalVotes}</h4>  : <div className="skeleton w-24 h-9" ></div>}
+    {totalVotes ?   <h4 className="H4 " style={{margin : 0}}>{totalVotes.toLocaleString()}</h4>  : <div className="skeleton w-24 h-9" ></div>}
     </div>
     <div className="lg:flex hidden flex-col gap-4 items-center justify-center">
     <div id="totalVotes" className="flex flex-col items-center gap-1 mt-9" >
     <h4 className="H4 " style={{margin : 0}} >Total Votes</h4>
-    {totalVotes ?   <h4 className="H4 " style={{margin : 0}}>{totalVotes}</h4>  : <div className="skeleton w-24 h-9" ></div>}
+    {totalVotes ?   <h4 className="H4 " style={{margin : 0}}>{totalVotes.toLocaleString()}</h4>  : <div className="skeleton w-24 h-9" ></div>}
     </div>
     <img src="/leaderboard.png" width="200px" />
     </div>
