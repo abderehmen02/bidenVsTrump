@@ -27,7 +27,7 @@ export const CountryVoteUi : React.FC<{countryVotes: CountryInfoDb  , index : nu
                             break;
                 
     }
-    return <div className="w-full flex relative  countryLeaderBoardItem items-center  px-4" >   
+    return <div className="w-full flex relative   items-center  px-4" >   
     <div  className="flex items-center w-[30%]   gap-3 " >
     <div className="min-w-[50px] max-w-[50px] flex items-center justify-center relative" >{medalSrcImg ? <img src={medalSrcImg} alt="medal" className="w-full " /> :  <h3 className="text-2xl  block  font-bold "  >#{index + 1 }</h3>}</div>
     <img src={`/flags/${countryVotes.countrySymbol.trim().toLocaleLowerCase()}.png`} className="w-[74px] border border-black " />
@@ -120,7 +120,7 @@ else return acc
     {leaderboardOpened ? <img onClick={closeLeaderBoard} src="/icons/dropDown.svg " className="w-[25px] rotate-180 cursor-pointer" /> :  <div className="relative"  ><img className="absolute -left-10 -top-20 min-w-[100px] min-h-[100]"  src="/clickAnimation.gif" /> <img onClick={openLeaderBoard} src="/icons/dropDown.svg " className="w-[25px]  z-50 relative cursor-pointer" /></div>}
     </div>
     </div>
-    <div ref={leaderboardContainer} className="flex max-h-[70vh] leaderBoardScrollbar
+    <div ref={leaderboardContainer} className="flex max-h-[70vh] lg:max-h-[44vh] leaderBoardScrollbar
 leaderBoardScrollbar overflow-y-scroll bg-white bg-opacity-55 backdrop-blur  flex-col absolute top-16 w-full gap-3" >
     {
         countriesVotes.sort((countryB, countryA)=>((countryA.trump + countryA.biden) - (countryB.trump + countryB.biden)) ).map((countryVote , index )=><CountryVoteUi key={countryVote.countrySymbol} index={index} countryVotes={countryVote} />)
