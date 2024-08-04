@@ -27,7 +27,7 @@ export const CountryVoteUi : React.FC<{countryVotes: CountryInfoDb  , index : nu
                             break;
                 
     }
-    return <div className="w-full flex relative items-center  px-4" >   
+    return <div className="w-full flex relative  countryLeaderBoardItem items-center  px-4" >   
     <div  className="flex items-center w-[30%]   gap-3 " >
     <div className="min-w-[50px] max-w-[50px] flex items-center justify-center relative" >{medalSrcImg ? <img src={medalSrcImg} alt="medal" className="w-full " /> :  <h3 className="text-2xl  block  font-bold "  >#{index + 1 }</h3>}</div>
     <img src={`/flags/${countryVotes.countrySymbol.trim().toLocaleLowerCase()}.png`} className="w-[74px] border border-black " />
@@ -112,7 +112,7 @@ if(acc.biden + acc.trump < countryVotes.biden+ countryVotes.trump) return countr
 else return acc
      }) : undefined
     return        <motion.div  initial={{y : 0}} animate={openLeaderboardAnimation} className="  relative  w-full  mt-4  flex flex-col" >
-    <div className="px-8 py-4 bg-white bg-opacity-55 backdrop-blur    flex items-center justify-between" >
+    <div className="px-8 py-4 bg-white bg-opacity-55 backdrop-blur rounded-t-lg   flex items-center justify-between" >
     { greatestCountry ?  <div className="flex gap-1 items-center  " ><h4 style={{margin : 0 , color : "black" }} className="H7" >#1</h4>    <img src={`/flags/${greatestCountry.countrySymbol?.trim().toLowerCase()}.png`}  width="50px" /><h6 className="H7" style={{margin : 0 , color : "black"}} >{ (greatestCountry.trump + greatestCountry.biden).toLocaleString() }</h6>    </div> : <div className="skeleton w-40 h-8" ></div> }
     <div className="flex gap-4 items-center  " >
     <img src={`/flags/${countrySymbol?.trim().toLowerCase()}.png`}  width="50px" />

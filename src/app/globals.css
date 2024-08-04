@@ -84,3 +84,6 @@ html {
 .leaderBoardScrollbar::-webkit-scrollbar-thumb:hover {
   background-color: rgb(232, 159, 1);
 }
+.countryLeaderBoardItem {
+  box-shadow: 1px 2px 2px black;
+}
