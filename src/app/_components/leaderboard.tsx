@@ -27,21 +27,21 @@ export const CountryVoteUi : React.FC<{countryVotes: CountryInfoDb  , index : nu
                             break;
                 
     }
-    return <div className="w-full flex items-center  px-4" >   
-    <div  className="flex items-center  gap-3 " >
+    return <div className="w-full flex relative items-center  px-4" >   
+    <div  className="flex items-center w-[30%]   gap-3 " >
     <div className="min-w-[50px] max-w-[50px] flex items-center justify-center relative" >{medalSrcImg ? <img src={medalSrcImg} alt="medal" className="w-full " /> :  <h3 className="text-2xl  block  font-bold "  >#{index + 1 }</h3>}</div>
     <img src={`/flags/${countryVotes.countrySymbol.trim().toLocaleLowerCase()}.png`} className="w-[74px] border border-black " />
-    <h4 style={{color : "black" , margin: 0}} className="H6" >{countryName}</h4>
+    <h4 style={{color : "black" , margin: 0  , textAlign: "start"}} className="H6 " >{countryName}</h4>
     </div>
     <div className="w-full flex px-2 py-8 items-center justify-between" >
-     <div className="w-full flex items-center justify-end gap-2  " >
+     <div className="w-full flex  items-center justify-end  gap-2  " >
      <h6 style={{color : "black" , margin: 0}} className="H6" >{countryVotes.trump.toLocaleString()}</h6>
 
     <img  src="/trumpBody.png" className="w-[53px]" />
     <h4 style={{color : "black" , margin: 0}} className="H6 hidden lg:block" >Trump</h4>
 
      </div>
-     <div className="w-full flex items-center justify-end gap-2 " >
+     <div className="w-full flex items-center  justify-end gap-2 " >
      <h6 style={{color : "black" , margin: 0}} className="H6 " > {countryVotes.biden.toLocaleString()}</h6>
 
     <img  src="/harisImg.png" className="w-[53px]" />
