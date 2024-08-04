@@ -44,8 +44,8 @@ export const CountryVoteUi : React.FC<{countryVotes: CountryInfoDb  , index : nu
      <div className="w-full flex items-center justify-end gap-2 " >
      <h6 style={{color : "black" , margin: 0}} className="H6 " > {countryVotes.biden.toLocaleString()}</h6>
 
-    <img  src="/bidenBody.png" className="w-[40px]" />
-    <h4 style={{color : "black" , margin: 0}} className="H6 hidden lg:block" >Biden</h4>
+    <img  src="/harisImg.png" className="w-[40px]" />
+    <h4 style={{color : "black" , margin: 0}} className="H6 hidden lg:block" >Hires</h4>
 
      </div>
     </div>
