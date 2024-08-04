@@ -8,7 +8,7 @@ import { TotalVotes } from "./_components/totalVotes";
 import { BidenVotes, GreaterSign, TrumpVotes } from "./_components/candidates";
 import { connectDbPromise } from "@/db/connect";
 import { MyVotesSection } from "./_components/myVotesSection";
-import { PageButtons } from "./_components/buttons";
+import { HeaderButtonsDesktop, PageButtons } from "./_components/buttons";
 
 const env = process.env.NODE_ENV
 export default async function Home() {
@@ -22,11 +22,7 @@ export default async function Home() {
   
    return (
     <main className="lg:max-w-[1500px] max-w-full lg:max-h-screen overflow-hidden flex items-center  flex-col justify-center pt-3 lg:pt-0 px-3 pb-0 ">
-      <div className="w-full flex items-center justify-between" >
-      <img className="hidden lg:block" width="200px" src="/buyNow.png" style={{margin :0}} />
-      <img src="/pageTitle.png" width="600px" className="" style={{margin : 0}}  />
-      <img className="hidden lg:block" width="200px" src="/home.png" style={{margin :0}} />
-      </div>
+      <HeaderButtonsDesktop/>
       <PageButtons/>
 
       <h5 style={{margin : 0}} className="text-3xl text-white tracking-wider font-bold lg:mt-0 mt-11 text-center" >Tap on your favorite Spudz candidate to cast your vote!</h5>
