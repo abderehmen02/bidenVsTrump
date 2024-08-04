@@ -10,9 +10,10 @@ import { connectDbPromise } from "@/db/connect";
 import { MyVotesSection } from "./_components/myVotesSection";
 import { PageButtons } from "./_components/buttons";
 
-
+const env = process.env.NODE_ENV
 export default async function Home() {
-  const ipAddress =     headers().get("x-forwarded-for") 
+
+  const ipAddress = env === "development" ? "41.97.83.242" :      headers().get("x-forwarded-for") 
   // console.log("ip addres data"  , ipAddressData) 
   await connectDbPromise
   const allCountriesVotes : CountryInfoDb[] = await CountryModal().find()
