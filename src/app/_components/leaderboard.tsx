@@ -112,7 +112,7 @@ if(acc.biden + acc.trump < countryVotes.biden+ countryVotes.trump) return countr
 else return acc
      }) : undefined
     return        <motion.div  initial={{y : 0}} animate={openLeaderboardAnimation} className="  relative  w-full  mt-4  flex flex-col" >
-    <div className="px-8 py-4 bg-white bg-opacity-70 backdrop-blur    flex items-center justify-between" >
+    <div className="px-8 py-4 bg-white bg-opacity-55 backdrop-blur    flex items-center justify-between" >
     { greatestCountry ?  <div className="flex gap-1 items-center  " ><h4 style={{margin : 0 , color : "black" }} className="H7" >#1</h4>    <img src={`/flags/${greatestCountry.countrySymbol?.trim().toLowerCase()}.png`}  width="50px" /><h6 className="H7" style={{margin : 0 , color : "black"}} >{ (greatestCountry.trump + greatestCountry.biden).toLocaleString() }</h6>    </div> : <div className="skeleton w-40 h-8" ></div> }
     <div className="flex gap-4 items-center  " >
     <img src={`/flags/${countrySymbol?.trim().toLowerCase()}.png`}  width="50px" />
@@ -121,7 +121,7 @@ else return acc
     </div>
     </div>
     <div ref={leaderboardContainer} className="flex max-h-[70vh] leaderBoardScrollbar
-leaderBoardScrollbar overflow-y-scroll bg-white bg-opacity-70 backdrop-blur  flex-col absolute top-16 w-full gap-3" >
+leaderBoardScrollbar overflow-y-scroll bg-white bg-opacity-55 backdrop-blur  flex-col absolute top-16 w-full gap-3" >
     {
         countriesVotes.sort((countryB, countryA)=>((countryA.trump + countryA.biden) - (countryB.trump + countryB.biden)) ).map((countryVote , index )=><CountryVoteUi key={countryVote.countrySymbol} index={index} countryVotes={countryVote} />)
     } 
