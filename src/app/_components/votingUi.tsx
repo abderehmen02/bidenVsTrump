@@ -61,8 +61,8 @@ const handleBidenClick = ()=>{
 
 
 
-    return <div className="flex relative  justify-center lg:gap-36 gap-20 px-8 w-full  z-0 lg:mt-1 mt-2" >
-    <div className="flex z-10 relative flex-col items-center lg:gap-0 gap-7" >
+    return <div className="flex relative  justify-between lg:gap-36  lg:px-8 w-full  z-0 lg:mt-1 mt-2" >
+    <div className="flex z-10 relative  flex-col items-center lg:gap-0 gap-4" >
    <div> {trumpVoteAnimations.map(animation=>animation.element)}</div>
    <img  className="w-[300px] lg:w-[250px] " src="/trumpText.png" />
    <motion.img animate={rotateTrumpAnimation}   className="w-[380px] lg:w-[300px]  cursor-pointer" onClick={handleTrumpClick} src="/trumpBody.png" />
@@ -70,14 +70,14 @@ const handleBidenClick = ()=>{
    <div className="flex flex-col pt-28  gap-4 items-center " >
    <div className="z-0 absolute top-1/2 flex  justify-center left-1/2 w-7/12 -translate-x-1/2 -translate-y-1/2" >
    <img src="/vsBg.png" className="absolute z-[1]  lg:hidden opacity-70  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full"  />
-   <img src="/vs.png"  className="z-[2]  w-[180px] -translate-y-28" />
+   <img src="/vs.png"  className="z-[2]  w-[180px] -translate-y-12 lg:-translate-y-28" />
    </div>
-   <div className="hidden lg:block" ><TotalVotes/></div>
+   <TotalVotes/>
    <div className="hidden lg:block" ><MyVotesSection/></div>
 
    </div> 
 
-   <div className="flex z-10 relative flex-col items-center lg:gap-0 gap-7" >    
+   <div className="flex z-10 relative   flex-col items-center lg:gap-0 gap-4" >    
    <div> {bidenVoteAnimations.map(animation=>animation.element)}</div>
    <img className="w-[300px] lg:w-[250px] " src="/harisName.png" />
    <motion.img className="w-[380px] lg:w-[300px]  cursor-pointer" animate={rotateBidenAnimation} onClick={handleBidenClick} src="/harisImg.png" />

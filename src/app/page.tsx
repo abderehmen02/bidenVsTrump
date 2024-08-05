@@ -21,15 +21,15 @@ export default async function Home() {
 
   
    return (
-    <main className="lg:max-w-[1500px] max-w-full lg:max-h-screen overflow-hidden flex items-center  flex-col justify-center pt-3 lg:pt-0 px-3 pb-0 ">
+    <main className="lg:max-w-[1500px] max-w-full min-h-[100vh] justify-start lg:max-h-screen overflow-hidden flex items-center  flex-col  pt-3 lg:pt-0 px-3 pb-0  h-fit">
       <HeaderButtonsDesktop/>
       <PageButtons/>
 
       <h5 style={{margin : 0}} className="text-2xl lg:text-3xl text-white tracking-wider font-bold lg:mt-0 mt-11 text-center" >Tap on your favorite Spudz candidate to cast your vote!</h5>
       <img src="/pageFlag.png" className="hidden" width="820px" />
       <VotingUi/>
-      <div className="block lg:hidden" ><TotalVotes/></div>
-      <div id="votesComperation" className="flex   justify-between px-2 lg:px-16 w-full " >
+      {/* <div className="block lg:hidden" ><TotalVotes/></div> */}
+      <div id="votesComperation" className="flex   justify-around lg:justify-between px-2 lg:px-16 w-full " >
        <TrumpVotes/>
        <div className="flex flex-col items-center" ><GreaterSign/>
        <img  className="hidden lg:block" width="300px" src="/leaderboard.png"   />       
