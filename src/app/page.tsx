@@ -25,7 +25,7 @@ export default async function Home() {
       <HeaderButtonsDesktop/>
       <PageButtons/>
 
-      <h5 style={{margin : 0}} className="text-3xl text-white tracking-wider font-bold lg:mt-0 mt-11 text-center" >Tap on your favorite Spudz candidate to cast your vote!</h5>
+      <h5 style={{margin : 0}} className="text-2xl lg:text-3xl text-white tracking-wider font-bold lg:mt-0 mt-11 text-center" >Tap on your favorite Spudz candidate to cast your vote!</h5>
       <img src="/pageFlag.png" className="hidden" width="820px" />
       <VotingUi/>
       <div className="block lg:hidden" ><TotalVotes/></div>

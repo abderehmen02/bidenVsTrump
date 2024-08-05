@@ -50,11 +50,11 @@ html {
 
 
 .H5 {
-  @apply text-3xl text-white tracking-wider font-bold mt-11 text-center m-0 leading-none
+  @apply text-xl lg:text-3xl text-white tracking-wider font-bold mt-11 text-center m-0 leading-none
 }
 
 .H4 {
-  @apply text-4xl text-white tracking-wider font-bold mt-11 text-center  m-0 leading-none
+  @apply text-2xl lg:text-4xl text-white tracking-wider font-bold mt-11 text-center  m-0 leading-none
 }
 
 
