@@ -38,7 +38,7 @@ export const TotalVotes = ()=>{
     // <h4 className="H4 " style={{margin : 0}}></h4>
       : <div className="skeleton w-24 h-9" ></div>}
     </div>
-    <img src="/leaderboard.png" width="200px" />
+    {/* <img src="/leaderboard.png" width="200px" /> */}
     </div>
     </> 
 }
