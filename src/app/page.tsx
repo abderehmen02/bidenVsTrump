@@ -21,7 +21,7 @@ export default async function Home() {
 
   
    return (
-    <main className="lg:max-w-[1500px] max-w-full min-h-[100vh] justify-start lg:max-h-screen overflow-hidden flex items-center  flex-col  pt-3 lg:pt-0 px-3 pb-0  h-fit">
+    <main style={{minHeight : "100vh"}} className="lg:max-w-[1500px] h-fit pb-16    relative max-w-full min-h-[100vh] justify-start lg:max-h-screen overflow-hidden flex items-center  flex-col  pt-3 lg:pt-0 px-3   ">
       <HeaderButtonsDesktop/>
       <PageButtons/>
 

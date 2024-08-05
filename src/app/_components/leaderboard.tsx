@@ -9,6 +9,7 @@ import { useCountrySymbolStore } from "@/store/countrySymbol"
 import { CountryInfoDb } from "@/db/modals/countryDb"
 import { useCountriesVotesStore } from "@/store/countriesDb"
 import { useVotes } from "@/hooks/useVotes"
+import { cn } from "@/utils/tailwind"
 
 
 export const CountryVoteUi : React.FC<{countryVotes: CountryInfoDb  , index : number }> = ({countryVotes , index})=>{
@@ -111,7 +112,7 @@ export const LeaderBoard : React.FC<{ipAddress : string  , countriesVotes : Coun
 if(acc.biden + acc.trump < countryVotes.biden+ countryVotes.trump) return countryVotes
 else return acc
      }) : undefined
-    return        <motion.div  initial={{y : 0}} animate={openLeaderboardAnimation} className="  absolute bottom-0  w-full  mt-4 overflow-hidden  flex flex-col" >
+    return        <motion.div  initial={{y : 0}} animate={openLeaderboardAnimation} className={cn("  absolute bottom-0  w-full  mt-4 h-[65px] overflow-hidden   flex flex-col" , {"h-fit overflow-visible" : leaderboardOpened} )} >
     <div className="px-8 py-4 bg-white bg-opacity-55 backdrop-blur rounded-t-lg   flex items-center justify-between" >
     { greatestCountry ?  <div className="flex gap-1 items-center  " ><h4 style={{margin : 0 , color : "black" }} className="H7" >#1</h4>    <img src={`/flags/${greatestCountry.countrySymbol?.trim().toLowerCase()}.png`}  width="50px" /><h6 className="H7" style={{margin : 0 , color : "black"}} >{ (greatestCountry.trump + greatestCountry.biden).toLocaleString() }</h6>    </div> : <div className="skeleton w-40 h-8" ></div> }
     <div className="flex gap-4 items-center  " >
