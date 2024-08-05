@@ -29,10 +29,10 @@ const onHoverStart = ()=>{
 }
 
 export const PageButtons = ()=>{
-    return <div  className="flex py-1  px-1 lg:hidden w-full  relative  z-10  items-center justify-around" >
+    return <div  className="flex py-3  px-1 lg:hidden w-full  relative  z-10  items-center justify-around" >
               <img  width="200px" src="/buyNow.png" style={{margin :0 }} />
-              <img width="150px" src="/home.png" style={{margin :0  }} />
-    </div>
+              <motion.button whileHover={{scale : 1.1}} className="relative z-20 lg:block px-6 py-2  text-xl bg-green-700 text-white font-bold border-4 rounded-xl border-white" >ABOUT $SPUDZ</motion.button>
+              </div>
 }
 
 
