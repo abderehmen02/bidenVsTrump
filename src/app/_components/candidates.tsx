@@ -99,6 +99,6 @@ if(isTrumpWinner === undefined){
 
 
 
-    return        <motion.img animate={changeWinnerAnimation} initial={{rotate : isTrumpWinner ? 0 : 180}} src="/greaterSign.png" className={cn("w-32" )} ></motion.img>
+    return        <motion.img animate={changeWinnerAnimation} initial={{rotate : isTrumpWinner ? 0 : 180}} src="/greaterSign.png" className={cn("w-16 lg:w-32" )} ></motion.img>
 
 }
