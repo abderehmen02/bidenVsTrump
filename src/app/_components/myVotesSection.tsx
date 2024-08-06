@@ -20,8 +20,8 @@ export const MyVotesSection = ()=>{
     } , [] )
 
     return <div  className=" bg-gray-800 h-fit w-full rounded-3xl gap-5 flex items-center justify-center p-1 " > 
-    <div className="bg-green-700 rounded-3xl px-4 py-2 H5" style={{margin : 0}} >{trump}</div>
+    <div className="bg-green-700 rounded-3xl px-4 py-2 H5" style={{margin : 0}} >{trump.toLocaleString()}</div>
     <h3 className="text-2xl text-yellow-400 text-center"  style={{margin : 0}}>Your Contributions</h3>
-    <div className="bg-green-700 rounded-3xl px-4 py-2 H5" style={{margin : 0}} >{biden}</div>
+    <div className="bg-green-700 rounded-3xl px-4 py-2 H5" style={{margin : 0}} >{biden.toLocaleString()}</div>
     </div>
 }
