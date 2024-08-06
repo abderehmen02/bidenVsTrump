@@ -112,8 +112,8 @@ export const LeaderBoard : React.FC<{ipAddress : string  , countriesVotes : Coun
 if(acc.biden + acc.trump < countryVotes.biden+ countryVotes.trump) return countryVotes
 else return acc
      }) : undefined
-    return        <motion.div  initial={{y : 0}} animate={openLeaderboardAnimation} className={cn("  absolute bottom-0  w-full  mt-4 h-[65px]    flex flex-col" , {"h-fit overflow-visible" : leaderboardOpened} )} >
-    <div  className="px-3 lg:px-8 py-6 lg:py-4 bg-white shadow-2xl border-b-2 border-black bg-opacity-55 backdrop-blur rounded-t-lg   flex items-center justify-between" >
+    return        <motion.div  initial={{y : 0}} animate={openLeaderboardAnimation} className={cn("  absolute bottom-0  w-full  mt-4 h-[56px] lg:h-[65px]    flex flex-col" , {"h-fit overflow-visible" : leaderboardOpened} )} >
+    <div  className="px-3 lg:px-8 py-4 bg-white shadow-2xl border-b-2 border-black bg-opacity-55 backdrop-blur rounded-t-lg   flex items-center justify-between" >
     { greatestCountry ?  <div className="flex gap-1 items-center  " ><h4 style={{margin : 0 , color : "black" }} className="H7" >#1</h4>    <img src={`/flags/${greatestCountry.countrySymbol?.trim().toLowerCase()}.png`}  className="w-[30px] lg:w-[50px]" /><h6 className="H7" style={{margin : 0 , color : "black"}} >{ (greatestCountry.trump + greatestCountry.biden).toLocaleString() }</h6>    </div> : <div className="skeleton w-40 h-8" ></div> }
     <div className="flex gap-1 lg:gap-4 items-center  " >
     <img src={`/flags/${countrySymbol?.trim().toLowerCase()}.png`}  className="w-[30px] lg:w-[50px]" />
@@ -121,8 +121,8 @@ else return acc
     {leaderboardOpened ? <img onClick={closeLeaderBoard} src="/icons/dropDown.svg " className="w-[25px] rotate-180 cursor-pointer" /> :  <div className="relative"  ><img className="absolute lg:-left-10 -top-14 -left-5 lg:-top-20 min-w-[70px] lg:min-w-[100px]  z-30  min-h-[100]"  src="/clickAnimation.gif" /> <img onClick={openLeaderBoard} src="/icons/dropDown.svg " className="w-[25px]  z-50 relative cursor-pointer" /></div>}
     </div>
     </div>
-    <div ref={leaderboardContainer} className="flex max-h-[70vh] lg:max-h-[44vh] leaderBoardScrollbar
- overflow-y-scroll bg-white bg-opacity-55 backdrop-blur  flex-col absolute top-16 w-full gap-3" >
+    <div ref={leaderboardContainer} className="flex max-h-[44vh] lg:max-h-[44vh] leaderBoardScrollbar
+ overflow-y-scroll bg-white bg-opacity-55 backdrop-blur  flex-col absolute top-14 lg:top-16 w-full gap-3" >
     {
         countriesVotes.sort((countryB, countryA)=>((countryA.trump + countryA.biden) - (countryB.trump + countryB.biden)) ).map((countryVote , index )=><CountryVoteUi key={countryVote.countrySymbol} index={index} countryVotes={countryVote} />)
     } 
