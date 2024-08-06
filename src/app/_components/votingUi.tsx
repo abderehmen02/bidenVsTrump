@@ -38,7 +38,7 @@ const handleTrumpClick = ()=>{
    addTrumpVote()
    increaseTrump()
     trumpAnimationsKey.current += 1 ;
-    setTrumpVoteAnimations((animations)=>([ ...animations , {element  : <motion.h4  className={cn("H1 absolute top-10 right-0 text-white"  )} transition={{duration : 1}} initial={{y  : -300 , zIndex : 50 , opacity : 1 }} animate={{y : 0  , zIndex :-50 , opacity : [1,1,0.5,0]}} >+1</motion.h4> , key : trumpAnimationsKey.current  }]))
+    setTrumpVoteAnimations((animations)=>([ ...animations , {element  : <motion.h4  style={{zIndex : 100}} className={cn("H1 absolute top-10  right-0 text-white"  )} transition={{duration : 1}} initial={{y  : -300 , zIndex : 50 , opacity : 1 }} animate={{y : 0  , zIndex :-50 , opacity : [1,1,0.5,0]}} >+1</motion.h4> , key : trumpAnimationsKey.current  }]))
 
     // if(votingTrump) return 
     // voteTrumpAnimation.start({y : -0, opacity : 1, transition : {duration : 0.3} }).then(()=>{setVotingTrump(false)
@@ -75,10 +75,10 @@ const handleBidenClick = ()=>{
 
 
 
-    return <div className="flex relative  justify-between lg:gap-36  lg:px-8 w-full  z-0 lg:mt-1 mt-2" >
+    return <div className="flex relative  justify-between lg:gap-36  lg:px-8 w-full  z-0 lg:mt-1 " >
     <div className="flex z-10 relative  flex-col items-center lg:gap-0 gap-4" >
    <div> {trumpVoteAnimations.map(animation=>animation.element)}</div>
-   <img  className="w-[300px] lg:w-[250px] " src="/trumpText.png" />
+   <img  className="w-[300px] lg:w-[250px] relative z-40 " src="/trumpText.png" />
    <div className="relative flex items-center justify-center  overflow-visible h-fit " >
     {votingTrump &&  <img src="/animationPic.gif" className="absolute z-10 min-w-[230px]  lg:min-w-[500px]  "  />}
     <img    className="w-[380px] lg:w-[200px] relative z-20 cursor-pointer" onClick={handleTrumpClick} src="/trumpBody.png" /></div>
@@ -97,7 +97,7 @@ const handleBidenClick = ()=>{
    <div> {bidenVoteAnimations.map(animation=>animation.element)}</div>
    <img className="w-[300px] lg:w-[250px] " src="/harisName.png" />
    <div className="relative flex items-center justify-center  overflow-visible h-fit " >
-   {votingBiden &&  <img src="/animationPic.gif" className="absolute z-10 min-w-[350px]  lg:min-w-[500px]  "  />}
+   {votingBiden &&  <img src="/animationPic.gif" className="absolute z-10  min-w-[230px]  lg:min-w-[500px]  "  />}
    <img className="w-[380px] lg:w-[200px] z-20  cursor-pointer"  onClick={handleBidenClick} src="/harisImg.png" />
    </div>
    </div>

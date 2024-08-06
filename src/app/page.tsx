@@ -37,7 +37,7 @@ export default async function Home() {
        </div>
         <BidenVotes/>
        </div>
-       <img  className="mt-2 w-[200px] lg:hidden" src="/leaderboard.png"   />
+       <img  className=" w-[200px] lg:hidden" src="/leaderboard.png"   />
        <LeaderBoard countriesVotes={allCountriesVotes} ipAddress={ipAddress || ""}/>
     </div>
   );
