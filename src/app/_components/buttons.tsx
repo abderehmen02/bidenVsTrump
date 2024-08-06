@@ -30,8 +30,13 @@ const onHoverStart = ()=>{
 
 export const PageButtons = ()=>{
     return <div  className="flex py-3  px-1 lg:hidden w-full  relative  z-10  items-center justify-around" >
+            <img className="cursor-pointer"  width="25px" src="/telegram.png"   />
+
               <img  className="w-[130px] lg:w-[200px]" src="/buyNow.png" style={{margin :0 }} />
-              <motion.button whileHover={{scale : 1.1}} className="relative z-20 lg:block lg:px-6 px-2 py-1 lg:py-2  lg:text-xl bg-green-700 text-white font-bold border-4 rounded-xl border-white" >ABOUT $SPUDZ</motion.button>
+              <motion.button whileHover={{scale : 1.1}} className="relative z-20 lg:block lg:px-6 px-2 py-1 lg:py-2  lg:text-xl bg-green-700 text-white font-bold border-2 rounded-xl border-white" >ABOUT $SPUDZ</motion.button>
+              <div className="gap-1 flex" >
+    <img className="cursor-pointer"  width="25px" src="/x.webp"  />
+    </div>
               </div>
 }
 
