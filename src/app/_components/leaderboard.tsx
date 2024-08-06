@@ -28,7 +28,7 @@ export const CountryVoteUi : React.FC<{countryVotes: CountryInfoDb  , index : nu
                             break;
                 
     }
-    return <div className="w-full flex relative   items-center  px-4" >   
+    return <div className="w-full flex relative countryLeaderBoardItem   items-center  px-4" >   
     <div  className="flex items-center w-[30%]   gap-3 " >
     <div className="min-w-[50px] max-w-[50px] flex items-center justify-center relative" >{medalSrcImg ? <img src={medalSrcImg} alt="medal" className="w-full " /> :  <h3 className="text-2xl  block  font-bold "  >#{index + 1 }</h3>}</div>
     <img src={`/flags/${countryVotes.countrySymbol.trim().toLocaleLowerCase()}.png`} className="w-[74px] border border-black " />
