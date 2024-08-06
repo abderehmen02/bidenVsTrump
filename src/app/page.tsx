@@ -21,14 +21,13 @@ export default async function Home() {
 
   
    return (
-    <main style={{minHeight : "100vh"}} className="lg:max-w-[1500px] h-fit pb-16    relative max-w-full min-h-[100vh] justify-start lg:max-h-screen overflow-hidden flex items-center  flex-col  pt-3 lg:pt-0 px-3   ">
+    <div style={{minHeight : "100vh" , margin: "0px" }} className="lg:max-w-[1500px]  pb-16   relative max-w-full justify-between lg:max-h-screen overflow-hidden flex items-center  flex-col    px-3 h-full  ">
       <HeaderButtonsDesktop/>
       <PageButtons/>
 
-      <h5 style={{margin : 0}} className="text-2xl lg:text-3xl text-white tracking-wider font-bold lg:mt-0 mt-11 text-center" >Tap on your favorite Spudz candidate to cast your vote!</h5>
+      <h5 style={{margin : 0}} className="text-lg leading-4 lg:text-3xl text-white  font-bold lg:mt-0 mt-8 text-center" >Tap on your favorite Spudz candidate to cast your vote!</h5>
       <img src="/pageFlag.png" className="hidden" width="820px" />
       <VotingUi/>
-      {/* <div className="block lg:hidden" ><TotalVotes/></div> */}
       <div className="lg:hidden my-2" > <MyVotesSection/></div>
 
       <div id="votesComperation" className="flex   justify-around lg:justify-between px-2 lg:px-16 w-full " >
@@ -38,8 +37,8 @@ export default async function Home() {
        </div>
         <BidenVotes/>
        </div>
-       <img  className="mt-2 w-[400px] lg:hidden" src="/leaderboard.png"   />
+       <img  className="mt-2 w-[200px] lg:hidden" src="/leaderboard.png"   />
        <LeaderBoard countriesVotes={allCountriesVotes} ipAddress={ipAddress || ""}/>
-    </main>
+    </div>
   );
 }

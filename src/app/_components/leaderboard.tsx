@@ -28,21 +28,21 @@ export const CountryVoteUi : React.FC<{countryVotes: CountryInfoDb  , index : nu
                             break;
                 
     }
-    return <div className="w-full flex relative countryLeaderBoardItem   items-center  px-4" >   
-    <div  className="flex items-center w-[30%]   gap-3 " >
-    <div className="min-w-[50px] max-w-[50px] flex items-center justify-center relative" >{medalSrcImg ? <img src={medalSrcImg} alt="medal" className="w-full " /> :  <h3 className="text-2xl  block  font-bold "  >#{index + 1 }</h3>}</div>
-    <img src={`/flags/${countryVotes.countrySymbol.trim().toLocaleLowerCase()}.png`} className="w-[74px] border border-black " />
+    return <div className="w-full flex relative countryLeaderBoardItem   items-center px-1  lg:px-4" >   
+    <div  className="flex items-center w-[30%] gap-1   lg:gap-3 " >
+    <div className="min-w-[30px] max-w-[30px] lg:min-w-[50px] lg:max-w-[50px] flex items-center justify-center relative" >{medalSrcImg ? <img src={medalSrcImg} alt="medal" className="w-full " /> :  <h3 className="text-lg lg:text-2xl  block  font-bold "  >#{index + 1 }</h3>}</div>
+    <img src={`/flags/${countryVotes.countrySymbol.trim().toLocaleLowerCase()}.png`} className="w-[30px] lg:w-[74px] border border-black " />
     <h4 style={{color : "black" , margin: 0  , textAlign: "start"}} className="H6 " >{countryName}</h4>
     </div>
-    <div className="w-full flex px-2 py-8 items-center justify-between" >
-     <div className="w-full flex  items-center justify-end  gap-2  " >
-     <h6 style={{color : "black" , margin: 0}} className="H6" >{countryVotes.trump.toLocaleString()}</h6>
+    <div className="w-full flex px-2 py-3 lg:py-8 items-center justify-between" >
+     <div className="w-full flex  items-center justify-end  gap-1 lg:gap-2  " >
+     <h6 style={{color : "black" , margin: 0}} className="H6 " >{countryVotes.trump.toLocaleString()}</h6>
 
-    <img  src="/trumpBody.png" className="w-[53px]" />
+    <img  src="/trumpBody.png" className="w-[53px] " />
     <h4 style={{color : "black" , margin: 0}} className="H6 hidden lg:block" >Trump</h4>
 
      </div>
-     <div className="w-full flex items-center  justify-end gap-2 " >
+     <div className="w-full flex items-center  justify-end gap-1 lg:gap-2 " >
      <h6 style={{color : "black" , margin: 0}} className="H6 " > {countryVotes.biden.toLocaleString()}</h6>
 
     <img  src="/harisImg.png" className="w-[53px]" />
@@ -113,10 +113,10 @@ if(acc.biden + acc.trump < countryVotes.biden+ countryVotes.trump) return countr
 else return acc
      }) : undefined
     return        <motion.div  initial={{y : 0}} animate={openLeaderboardAnimation} className={cn("  absolute bottom-0  w-full  mt-4 h-[65px] overflow-hidden   flex flex-col" , {"h-fit overflow-visible" : leaderboardOpened} )} >
-    <div className="px-8 py-4 bg-white bg-opacity-55 backdrop-blur rounded-t-lg   flex items-center justify-between" >
-    { greatestCountry ?  <div className="flex gap-1 items-center  " ><h4 style={{margin : 0 , color : "black" }} className="H7" >#1</h4>    <img src={`/flags/${greatestCountry.countrySymbol?.trim().toLowerCase()}.png`}  width="50px" /><h6 className="H7" style={{margin : 0 , color : "black"}} >{ (greatestCountry.trump + greatestCountry.biden).toLocaleString() }</h6>    </div> : <div className="skeleton w-40 h-8" ></div> }
-    <div className="flex gap-4 items-center  " >
-    <img src={`/flags/${countrySymbol?.trim().toLowerCase()}.png`}  width="50px" />
+    <div className="px-3 lg:px-8 py-6 lg:py-4 bg-white bg-opacity-55 backdrop-blur rounded-t-lg   flex items-center justify-between" >
+    { greatestCountry ?  <div className="flex gap-1 items-center  " ><h4 style={{margin : 0 , color : "black" }} className="H7" >#1</h4>    <img src={`/flags/${greatestCountry.countrySymbol?.trim().toLowerCase()}.png`}  className="w-[30px] lg:w-[50px]" /><h6 className="H7" style={{margin : 0 , color : "black"}} >{ (greatestCountry.trump + greatestCountry.biden).toLocaleString() }</h6>    </div> : <div className="skeleton w-40 h-8" ></div> }
+    <div className="flex gap-1 lg:gap-4 items-center  " >
+    <img src={`/flags/${countrySymbol?.trim().toLowerCase()}.png`}  className="w-[30px] lg:w-[50px]" />
     <h6 className="H7" style={{margin : 0 , color : "black"}}>{ (totalCountryVotes?.toLocaleString()) || 0 }</h6>
     {leaderboardOpened ? <img onClick={closeLeaderBoard} src="/icons/dropDown.svg " className="w-[25px] rotate-180 cursor-pointer" /> :  <div className="relative"  ><img className="absolute -left-10 -top-20 min-w-[100px] min-h-[100]"  src="/clickAnimation.gif" /> <img onClick={openLeaderBoard} src="/icons/dropDown.svg " className="w-[25px]  z-50 relative cursor-pointer" /></div>}
     </div>

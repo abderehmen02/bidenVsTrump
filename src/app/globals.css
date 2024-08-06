@@ -32,15 +32,15 @@ html {
 }
 
 
-@media screen and (max-width : 650px) {
+/* @media screen and (max-width : 650px) {
   html {
     zoom: 60%;
   }
-}
+} */
 
 
 .H7 {
-  @apply text-xl text-white tracking-wider font-bold mt-11 text-center m-0
+  @apply text-base lg:text-xl text-white tracking-wider font-bold mt-11 text-center m-0
 }
 
 
@@ -54,12 +54,12 @@ html {
 }
 
 .H4 {
-  @apply text-2xl lg:text-4xl text-white tracking-wider font-bold mt-11 text-center  m-0 leading-none
+  @apply text-xl lg:text-4xl text-white tracking-wider font-bold mt-11 text-center  m-0 leading-none
 }
 
 
 .H1 {
-  @apply text-9xl text-white tracking-wider font-bold mt-11 text-center  m-0
+  @apply  text-9xl text-white tracking-wider font-bold mt-11 text-center  m-0
 }
 
 .skeleton {
