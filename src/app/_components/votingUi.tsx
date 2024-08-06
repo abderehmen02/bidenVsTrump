@@ -15,6 +15,8 @@ const rotateBidenAnimation = useAnimation()
 const voteBidenAnimation = useAnimation()
 const [votingTrump , setVotingTrump ] = useState(false)
 const votingTrumpTimeout = useRef<NodeJS.Timeout | null>(null)
+const votingBidenTimeout = useRef<NodeJS.Timeout | null>(null)
+
 const [votingBiden, setVotingBiden] = useState(false)
 const [trumpVoteAnimations , setTrumpVoteAnimations ] = useState<{element : React.ReactNode , key : number }[]>([])
 const [bidenVoteAnimations , setBidenVoteAnimations ] = useState<{element : React.ReactNode , key : number }[]>([])
@@ -46,9 +48,15 @@ const handleTrumpClick = ()=>{
 }
 
 const handleBidenClick = ()=>{
+    setVotingBiden(true)
+    if(votingBidenTimeout.current) clearTimeout(votingBidenTimeout.current)
+    const timeoutId =  setTimeout(() => {
+        setVotingBiden(false)
+    }, (500));
+    votingBidenTimeout.current = timeoutId
+
     let clickSound = new Audio("/spudzSound.mp3")
     clickSound.play()   
-    setVotingBiden(true)
     increaseBiden()
     addBidenVote()
     bidenAnimationsKey.current += 1 ;
@@ -88,7 +96,10 @@ const handleBidenClick = ()=>{
    <div className="flex z-10 relative   flex-col items-center lg:gap-0 gap-4" >    
    <div> {bidenVoteAnimations.map(animation=>animation.element)}</div>
    <img className="w-[300px] lg:w-[250px] " src="/harisName.png" />
-   <motion.img className="w-[380px] lg:w-[300px]  cursor-pointer" animate={rotateBidenAnimation} onClick={handleBidenClick} src="/harisImg.png" />
+   <div className="relative flex items-center justify-center  overflow-visible h-fit " >
+   {votingBiden &&  <img src="/animationPic.gif" className="absolute z-10  min-w-[500px]  "  />}
+   <img className="w-[380px] lg:w-[300px] z-20  cursor-pointer"  onClick={handleBidenClick} src="/harisImg.png" />
+   </div>
    </div>
 
   </div>
