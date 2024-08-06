@@ -67,13 +67,13 @@ const handleBidenClick = ()=>{
    <img  className="w-[300px] lg:w-[250px] " src="/trumpText.png" />
    <motion.img animate={rotateTrumpAnimation}   className="w-[380px] lg:w-[300px]  cursor-pointer" onClick={handleTrumpClick} src="/trumpBody.png" />
    </div>
-   <div className="flex flex-col pt-28  gap-4 items-center " >
-   <div className="z-0 absolute top-1/2 flex  justify-center left-1/2 w-7/12 -translate-x-1/2 -translate-y-1/2" >
+   <div className="flex flex-col pt-28 lg:pt-8   gap-4 items-center justify-between " >
+   <div className="z-0  absolute top-1/2 flex  justify-center left-1/2 w-7/12 -translate-x-1/2 -translate-y-1/2" >
    <img src="/vsBg.png" className="absolute z-[1]  lg:hidden opacity-70  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full"  />
    <img src="/vs.png"  className="z-[2]  w-[180px] -translate-y-12 lg:-translate-y-28" />
    </div>
-   <TotalVotes/>
-   <div className="hidden lg:block" ><MyVotesSection/></div>
+<div className="mt-20" ><TotalVotes/></div>
+<div className="hidden lg:block" >   <MyVotesSection/></div>
 
    </div> 
 

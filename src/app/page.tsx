@@ -29,6 +29,8 @@ export default async function Home() {
       <img src="/pageFlag.png" className="hidden" width="820px" />
       <VotingUi/>
       {/* <div className="block lg:hidden" ><TotalVotes/></div> */}
+      <div className="lg:hidden my-2" > <MyVotesSection/></div>
+
       <div id="votesComperation" className="flex   justify-around lg:justify-between px-2 lg:px-16 w-full " >
        <TrumpVotes/>
        <div className="flex flex-col items-center" ><GreaterSign/>
@@ -36,7 +38,6 @@ export default async function Home() {
        </div>
         <BidenVotes/>
        </div>
-      <div className="lg:hidden mt-4" > <MyVotesSection/></div>
        <img  className="mt-2 w-[400px] lg:hidden" src="/leaderboard.png"   />
        <LeaderBoard countriesVotes={allCountriesVotes} ipAddress={ipAddress || ""}/>
     </main>
