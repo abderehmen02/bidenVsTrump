@@ -34,7 +34,7 @@ export const CountryVoteUi : React.FC<{countryVotes: CountryInfoDb  , index : nu
     <img src={`/flags/${countryVotes.countrySymbol.trim().toLocaleLowerCase()}.png`} className="w-[30px] lg:w-[74px] border border-black " />
     <h4 style={{color : "black" , margin: 0  , textAlign: "start"}} className="H6 " >{countryName}</h4>
     </div>
-    <div className="w-full flex px-2  py-1 lg:py-8 items-center justify-between" >
+    <div className="w-full flex px-2  py-1 lg:py-2 items-center justify-between" >
      <div className="w-full flex  items-center justify-end  gap-1 lg:gap-2  " >
      <h6 style={{color : "black" , margin: 0}} className="H6 " >{countryVotes.trump.toLocaleString()}</h6>
 
@@ -96,14 +96,14 @@ export const LeaderBoard : React.FC<{ipAddress : string  , countriesVotes : Coun
         setLeaderboardOpened(true)
         if (leaderboardContainer.current) {
             const height = leaderboardContainer.current.getBoundingClientRect().height;
-            openLeaderboardAnimation.start({y : -height , transition : {duration : 0.2}})
+            openLeaderboardAnimation.start({y : -height , transition : {duration : 0.9}})
           }
      }
 
 
      const closeLeaderBoard = ()=>{
         setLeaderboardOpened(false)
-        openLeaderboardAnimation.start({y : 0 , transition : { duration : 0.1} } )
+        openLeaderboardAnimation.start({y : 0 , transition : { duration : 0.9} } )
      }
  
 
@@ -121,7 +121,7 @@ else return acc
     {leaderboardOpened ? <img onClick={closeLeaderBoard} src="/icons/dropDown.svg " className="w-[25px] rotate-180 cursor-pointer" /> :  <div className="relative"  ><img className="absolute lg:-left-10 -top-14 -left-5 lg:-top-20 min-w-[70px] lg:min-w-[100px]  z-30  min-h-[100]"  src="/clickAnimation.gif" /> <img onClick={openLeaderBoard} src="/icons/dropDown.svg " className="w-[25px]  z-50 relative cursor-pointer" /></div>}
     </div>
     </div>
-    <div ref={leaderboardContainer} className="flex max-h-[44vh] lg:max-h-[44vh] leaderBoardScrollbar
+    <div ref={leaderboardContainer} className="flex max-h-[44vh] lg:max-h-[48vh] leaderBoardScrollbar
  overflow-y-scroll bg-white bg-opacity-55 backdrop-blur  flex-col absolute top-14 lg:top-16 w-full gap-3" >
     {
         countriesVotes.sort((countryB, countryA)=>((countryA.trump + countryA.biden) - (countryB.trump + countryB.biden)) ).map((countryVote , index )=><CountryVoteUi key={countryVote.countrySymbol} index={index} countryVotes={countryVote} />)
