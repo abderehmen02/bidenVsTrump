@@ -28,7 +28,7 @@ export const CountryVoteUi : React.FC<{countryVotes: CountryInfoDb  , index : nu
                             break;
                 
     }
-    return <div className={cn("w-full flex relative countryLeaderBoardItem   items-center px-1  lg:px-4"  , {"border-t-2 border-black" : index === 0 }  )} >   
+    return <div className={cn("w-full flex relative countryLeaderBoardItem   items-center px-1  lg:px-4"  , {"border-t-0 border-white" : index === 0 }  )} >   
     <div  className="flex  items-center w-[30%] gap-1   lg:gap-3 " >
     <div className="min-w-[30px] max-w-[30px] lg:min-w-[50px] lg:max-w-[50px] flex items-center justify-center relative" >{medalSrcImg ? <img src={medalSrcImg} alt="medal" className="w-full " /> :  <h3 className="text-lg lg:text-2xl  block  font-bold "  >#{index + 1 }</h3>}</div>
     <img src={`/flags/${countryVotes.countrySymbol.trim().toLocaleLowerCase()}.png`} className="w-[30px] lg:w-[74px] border border-black " />
@@ -113,7 +113,7 @@ if(acc.biden + acc.trump < countryVotes.biden+ countryVotes.trump) return countr
 else return acc
      }) : undefined
     return        <motion.div  initial={{y : 0}} animate={openLeaderboardAnimation} className={cn("  absolute bottom-0  w-full  mt-4 h-[56px] lg:h-[65px]    flex flex-col" , {"h-fit overflow-visible" : leaderboardOpened} )} >
-    <div  className="px-3 lg:px-8 py-4 bg-white shadow-2xl border-b-2 border-black bg-opacity-55 backdrop-blur rounded-t-lg   flex items-center justify-between" >
+    <div  className="px-3 lg:px-8 py-4 bg-white shadow-2xl shadow-white border-b-2 border-white bg-opacity-55 backdrop-blur rounded-t-lg   flex items-center justify-between" >
     { greatestCountry ?  <div className="flex gap-1 items-center  " ><h4 style={{margin : 0 , color : "black" }} className="H7" >#1</h4>    <img src={`/flags/${greatestCountry.countrySymbol?.trim().toLowerCase()}.png`}  className="w-[30px] lg:w-[50px]" /><h6 className="H7" style={{margin : 0 , color : "black"}} >{ (greatestCountry.trump + greatestCountry.biden).toLocaleString() }</h6>    </div> : <div className="skeleton w-40 h-8" ></div> }
     <div className="flex gap-1 lg:gap-4 items-center  " >
     <img src={`/flags/${countrySymbol?.trim().toLowerCase()}.png`}  className="w-[30px] lg:w-[50px]" />
