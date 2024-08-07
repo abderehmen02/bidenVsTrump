@@ -59,7 +59,7 @@ html {
 
 
 .H1 {
-  @apply  text-9xl text-white tracking-wider font-bold mt-11 text-center  m-0
+  @apply text-7xl lg:text-9xl text-white tracking-wider font-bold mt-11 text-center  m-0
 }
 
 .skeleton {
