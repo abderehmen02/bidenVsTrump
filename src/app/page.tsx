@@ -21,14 +21,14 @@ export default async function Home() {
 
   
    return (
-    <div style={{minHeight : "100vh" , margin: "0px" }} className="lg:max-w-[1500px] pb-16    relative max-w-full justify-between lg:max-h-screen overflow-hidden flex items-center  flex-col    px-3 h-full  ">
+    <div style={{height : "100svh"}} className="lg:max-w-[1500px] pb-16     relative max-w-full justify-between lg:max-h-screen overflow-hidden flex items-center  flex-col    px-3 h-full  ">
       <HeaderButtonsDesktop/>
       <PageButtons/>
 
       <h5 style={{margin : 0}} className="text-lg leading-4 lg:text-3xl text-white  font-bold lg:mt-0 mt-4 text-center" >Tap on your favorite Spudz candidate to cast your vote!</h5>
       <img src="/pageFlag.png" className="hidden" width="820px" />
       <VotingUi/>
-      <div className="" > <MyVotesSection/></div>
+      <div className="lg:hidden" > <MyVotesSection/></div>
 
       <div id="votesComperation" className="flex   my-2 justify-around items-center lg:justify-between px-2 lg:px-16 w-full " >
        <TrumpVotes/>

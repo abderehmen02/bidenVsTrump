@@ -21,7 +21,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-   <body className="flex flex-col justify-stretch min-h-screen  relative  items-center pb-0 lg:pt-2 pt-1 bg-black w-full h-full">
+   <body style={{height : "100svh"}} className="flex flex-col justify-stretch   relative  items-center pb-0 lg:pt-2 pt-1 bg-black w-full ">
     <AppProvider>{children}</AppProvider>
     </body>
     </html>
