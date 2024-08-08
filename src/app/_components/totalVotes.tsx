@@ -15,9 +15,9 @@ export const TotalVotes = ()=>{
     <h4 className="H4 " style={{margin : 0}} >Total Votes</h4>
     {totalVotes ?   <h4 className="H4 " style={{margin : 0}}>{totalVotes.toLocaleString()}</h4>  : <div className="skeleton w-24 h-9" ></div>}
     </div>
-    <div className="lg:flex hidden flex-col gap-4 items-center justify-center">
-    <div id="totalVotes" className="flex flex-col items-center gap-1 mt-9" >
-    <h4 className="H4 " style={{margin : 0}} >Total Votes</h4>
+    <div className="lg:flex hidden flex-col gap-4  items-center justify-center">
+    <div id="totalVotes" className="flex flex-col items-center gap-1 " >
+    <h4 className="text-xl lg:text-2xl text-white tracking-wider font-bold mt-11 text-center  m-0 leading-none " style={{margin : 0}} >Total Votes</h4>
     {totalVotes ?       <AnimatedNumber
       component="text"
       initialValue={0}
@@ -26,7 +26,7 @@ export const TotalVotes = ()=>{
       
       style={{
         transition: "0.8s ease-out",
-        fontSize: 48,
+        fontSize: 28,
         color : "#fff" ,
         transitionProperty: "background-color, color, opacity" ,
         fontWeight : "bold" 

@@ -83,13 +83,13 @@ const handleBidenClick = ()=>{
     {votingTrump &&  <img src="/animationPic.gif" className="absolute z-10 min-w-[230px]  lg:min-w-[500px]  "  />}
     <img    className="w-[380px] lg:w-[200px] relative z-20 cursor-pointer" onClick={handleTrumpClick} src="/trumpBody.png" /></div>
    </div>
-   <div className="flex flex-col pt-5 lg:pt-8 w-[300px]  gap-2 lg:gap-4 items-center justify-end lg:justify-between " >
+   <div className="flex flex-col pt-5  w-[300px]  gap-2 lg:gap-4 items-center justify-end lg:justify-between " >
    <div className="z-0  absolute top-1/2 flex  justify-center left-1/2 w-7/12 -translate-x-1/2 -translate-y-1/2" >
    <img src="/vsBg.png" className="absolute z-[1]  lg:hidden opacity-70  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full"  />
-   <img src="/vs.png"  className="z-[2] w-[120px]  lg:w-[180px] -translate-y-12 lg:-translate-y-28" />
+   <img src="/vs.png"  className="z-[2] w-[120px]  lg:w-[140px] -translate-y-12 lg:-translate-y-28" />
    </div>
-<img className="mt-20  lg:hidden" src="/2024.png" />
-<div className="lg:mt-20" ><TotalVotes/></div>
+<img className="mt-20 lg:mt-32  " width="100px" src="/2024.png" />
+<div  ><TotalVotes/></div>
 <div className="hidden lg:block" >   <MyVotesSection/></div>
 
    </div> 
