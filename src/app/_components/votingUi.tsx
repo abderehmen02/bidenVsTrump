@@ -88,8 +88,8 @@ const handleBidenClick = ()=>{
    <img src="/vsBg.png" className="absolute z-[1]  lg:hidden opacity-70  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full"  />
    <img src="/vs.png"  className="z-[2] w-[120px]  lg:w-[140px] -translate-y-12 lg:-translate-y-28" />
    </div>
-<img className="mt-20  xl:mt-32 lg:hidden xl:block  " width="100px" src="/2024.png" />
-<div className="lg:mt-20 xl:mt-0" ><TotalVotes/></div>
+<img className="mt-20  lg:mt-32  " width="100px" src="/2024.png" />
+<div className="" ><TotalVotes/></div>
 <div className="hidden lg:block  " >   <MyVotesSection/></div>
 
    </div> 
