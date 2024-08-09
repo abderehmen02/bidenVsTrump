@@ -66,6 +66,10 @@ html {
   @apply  bg-gray-200  dark:bg-gray-700 animate-pulse
 }
 
+.pageScrollBar::-webkit-scrollbar {
+  width: 0px;
+}
+
 
 .leaderBoardScrollbar::-webkit-scrollbar {
   width: 8px;

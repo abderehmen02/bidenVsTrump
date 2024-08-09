@@ -21,7 +21,8 @@ export default async function Home() {
 
   
    return (
-    <div style={{height : "100svh"}} className="lg:max-w-[1500px] pb-16     relative max-w-full justify-between lg:max-h-screen overflow-hidden flex items-center  flex-col    px-3 h-full  ">
+    <div style={{height : "100svh"}} className="lg:max-w-[1500px] pb-16  overflow-hidden    relative max-w-full justify-between lg:max-h-screen  flex items-center  flex-col    px-3 h-full  ">
+      <div className="pageScrollBar overflow-y-scroll" >
       <HeaderButtonsDesktop/>
       <PageButtons/>
 
@@ -38,6 +39,7 @@ export default async function Home() {
         <BidenVotes/>
        </div>
        <img  className=" w-[200px] lg:hidden" src="/leaderboard.png"   />
+       </div>
          <LeaderBoard countriesVotes={allCountriesVotes} ipAddress={ipAddress || ""}/>
     </div>
   );
