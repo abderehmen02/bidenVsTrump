@@ -30,15 +30,15 @@ export default async function Home() {
       <VotingUi/>
       <div className="lg:hidden" > <MyVotesSection/></div>
 
-      <div id="votesComperation" className="flex   my-2 justify-around items-center lg:justify-between px-2 lg:px-16 w-full " >
+      <div id="votesComperation" className="flex    my-2 justify-around items-center lg:justify-between px-2 lg:px-16 w-full " >
        <TrumpVotes/>
        <div className="flex flex-col items-center" ><GreaterSign/>
-       <img  className="hidden lg:block w-[300px]"  src="/leaderboard.png"   />       
+       <img  className="hidden xl:block w-[300px] "  src="/leaderboard.png"   />       
        </div>
         <BidenVotes/>
        </div>
        <img  className=" w-[200px] lg:hidden" src="/leaderboard.png"   />
-       <LeaderBoard countriesVotes={allCountriesVotes} ipAddress={ipAddress || ""}/>
+         <LeaderBoard countriesVotes={allCountriesVotes} ipAddress={ipAddress || ""}/>
     </div>
   );
 }
