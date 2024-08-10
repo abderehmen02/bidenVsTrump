@@ -75,7 +75,7 @@ const handleBidenClick = ()=>{
 
 
 
-    return <div className="flex relative  justify-between max-w-full overflow-hidden lg:gap-36  lg:px-8 w-full  z-0 lg:mt-1 " >
+    return <div className="flex relative  justify-between lg:gap-36  lg:px-8 w-full  z-0 lg:mt-1 " >
     <div className="flex z-10 relative  flex-col items-center lg:gap-0 gap-0" >
    <div> {trumpVoteAnimations.map(animation=>animation.element)}</div>
    <img  className="w-[300px] lg:w-[250px] relative z-40 " src="/trumpText.png" />
@@ -98,7 +98,8 @@ const handleBidenClick = ()=>{
    <div> {bidenVoteAnimations.map(animation=>animation.element)}</div>
    <img className="w-[300px] lg:w-[250px] " src="/harisName.png" />
    <div className="relative flex items-center justify-center  overflow-visible h-fit " >
- <img style={{margin :0}} src="/animationPic.gif" className={cn("absolute z-10 min-w-[230px]   lg:min-w-[500px] " , {"invisible" : !votingBiden} )}  />
+<div className="w-full absolute max-w-full lg:hidden -translate-x-8 overflow-hidden" > <img style={{margin :0}} src="/animationPic.gif" className={cn("  z-10 min-w-[230px]   lg:min-w-[500px] " , {"invisible" : !votingBiden} )}  /></div>
+<img style={{margin :0}} src="/animationPic.gif" className={cn("hidden lg:block absolute  z-10 min-w-[230px]   lg:min-w-[500px] " , {"invisible" : !votingBiden} )}  />
    <img className="w-[380px] lg:w-[200px] z-20  cursor-pointer"  onClick={handleBidenClick} src="/harisImg.png" />
    </div>
    </div>
