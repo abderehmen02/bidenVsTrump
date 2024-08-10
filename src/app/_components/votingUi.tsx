@@ -75,7 +75,7 @@ const handleBidenClick = ()=>{
 
 
 
-    return <div className="flex relative  justify-between lg:gap-36  lg:px-8 w-full  z-0 lg:mt-1 " >
+    return <div className="flex relative  justify-between max-w-full overflow-hidden lg:gap-36  lg:px-8 w-full  z-0 lg:mt-1 " >
     <div className="flex z-10 relative  flex-col items-center lg:gap-0 gap-0" >
    <div> {trumpVoteAnimations.map(animation=>animation.element)}</div>
    <img  className="w-[300px] lg:w-[250px] relative z-40 " src="/trumpText.png" />
