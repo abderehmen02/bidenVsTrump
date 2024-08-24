@@ -19,11 +19,11 @@ const onHoverStart = ()=>{
      <motion.a target="_blank" href="https://spudz-presale.netlify.app/" animate={rotateBtn} onHoverStart={onHoverStart} className="cursor-pointer hidden lg:block z-0 relative"   >   <img className="hidden lg:block" width="200px" src="/buyNow.png" style={{margin :0}} /></motion.a>
     <img src="/pageTitle.png"  className="w-[400px] lg:w-[600px]" style={{margin : 0}}  />
     <div className="flex gap-5" >
-    <motion.button whileHover={{scale : 1.1}} className="hidden relative  lg:block px-6 py-2  z-0 text-xl bg-green-700 text-white font-bold border-4 rounded-xl border-white" >ABOUT $SPUDZ</motion.button>
+    <a href=" www.thespudz.xyz" target="_blank" > <motion.div whileHover={{scale : 1.1}} className="hidden relative  lg:block px-6 py-2  z-0 text-xl bg-green-700 text-white font-bold border-4 rounded-xl border-white" >ABOUT $SPUDZ</motion.div></a>
     {/* <img className="hidden lg" width="200px" src="/home.png" style={{margin :0}} /> */}
     <div className="gap-3 hidden lg:flex" >
-    <motion.img className="cursor-pointer" whileHover={{scale : 1.2}} width="50px" src="/telegram.png"   />
-    <motion.img className="cursor-pointer" whileHover={{scale : 1.2}} width="50px" src="/x.webp"  />
+    <a href="https://t.me/+Btb7EqqapDhlOTc5" target="_blank"><motion.img className="cursor-pointer" whileHover={{scale : 1.2}} width="50px" src="/telegram.png"   /></a>
+    <a href="https://x.com/TheSpudz2024" target="_blank" ><motion.img className="cursor-pointer" whileHover={{scale : 1.2}} width="50px" src="/x.webp"  /></a>
     </div>
     </div>
     </div>
