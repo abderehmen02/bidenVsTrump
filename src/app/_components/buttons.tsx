@@ -1,11 +1,12 @@
 "use client"
 import {motion, useAnimation} from "framer-motion"
+import { useRouter } from "next/navigation"
 
 
 export const HeaderButtonsDesktop = ()=>{
     const rotateBtn = useAnimation()
     const zoomBtn = useAnimation()
-
+    const router = useRouter()
 const onHoverStart = ()=>{
     rotateBtn.start({
         rotate : [ 7, -7 , 5 , -5  , 3 , -3 , 1 , -1 , 0 , 0] , transition : {duration  : 1, ease: "easeIn" } 
@@ -29,14 +30,14 @@ const onHoverStart = ()=>{
 }
 
 export const PageButtons = ()=>{
-    
+    const router  = useRouter()
     return <div style={{margin :0}} className="flex  py-2 lg:py-3    px-1 lg:hidden w-full  relative  z-0  items-center justify-around" >
-            <img className="cursor-pointer"  width="25px" src="/telegram.png"   />
+           <a href="https://t.me/+Btb7EqqapDhlOTc5" target="_blank" > <img  className="cursor-pointer"  width="25px" src="/telegram.png"   /></a>
 
-               <a href="https://spudz-presale.netlify.app/" > <img   className="w-[130px] relative z-0  lg:w-[200px]" src="/buyNow.png" style={{margin :0 }} /></a>
-              <motion.button whileHover={{scale : 1.1}} className="relative z-20 lg:block lg:px-6 px-2 py-1 lg:py-2  lg:text-xl bg-green-700 text-white font-bold border-2 rounded-xl border-white" >ABOUT $SPUDZ</motion.button>
+               <a href="https://spudz-presale.netlify.app/" target="_blank" > <img   className="w-[130px] relative z-0  lg:w-[200px]" src="/buyNow.png" style={{margin :0 }} /></a>
+             <a target="_blank" href="www.thespudz.xyz" > <motion.div  whileHover={{scale : 1.1}} className="relative z-20 lg:block lg:px-6 px-2 py-1 lg:py-2  lg:text-xl bg-green-700 text-white font-bold border-2 rounded-xl border-white" >ABOUT $SPUDZ</motion.div></a>
               <div className="gap-1 flex" >
-    <img className="cursor-pointer"  width="25px" src="/x.webp"  />
+    <a target="_blank" href="https://x.com/TheSpudz2024"  ><img  className="cursor-pointer"  width="25px" src="/x.webp"  /></a>
     </div>
               </div>
 }
