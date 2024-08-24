@@ -22,7 +22,7 @@ export default async function Home() {
   
    return (
     <div style={{height : "100svh"  }} className="lg:max-w-[1500px] pb-16  overflow-hidden    relative max-w-full justify-between lg:max-h-screen  flex items-center  flex-col    px-3 h-full  ">
-      <div  className="pageScrollBar  w-full  flex items-center flex-col justify-between h-full overflow-y-scroll" >
+      <div  className="pageScrollBar  w-full  flex items-center overflow-x-hidden flex-col justify-between h-full overflow-y-scroll" >
       <HeaderButtonsDesktop/>
       <PageButtons/>
 
