@@ -20,7 +20,6 @@
   }
 }
 
-
 html {
   zoom: 1;
 }
@@ -31,45 +30,39 @@ html {
   }
 }
 
-
 /* @media screen and (max-width : 650px) {
   html {
     zoom: 60%;
   }
 } */
 
-
 .H7 {
-  @apply text-base lg:text-xl text-white tracking-wider font-bold mt-11 text-center m-0
+  @apply text-base lg:text-xl text-white tracking-wider font-bold mt-11 text-center m-0;
 }
-
 
 .H6 {
-  @apply text-sm lg:text-2xl text-white tracking-wider font-bold mt-11 text-center m-0 leading-none
+  @apply text-sm lg:text-2xl text-white tracking-wider font-bold mt-11 text-center m-0 leading-none;
 }
 
-
 .H5 {
-  @apply text-xl lg:text-3xl text-white tracking-wider font-bold mt-11 text-center m-0 leading-none
+  @apply text-xl lg:text-3xl text-white tracking-wider font-bold mt-11 text-center m-0 leading-none;
 }
 
 .H4 {
-  @apply text-xl lg:text-4xl text-white tracking-wider font-bold mt-11 text-center  m-0 leading-none
+  @apply text-xl lg:text-4xl text-white tracking-wider font-bold mt-11 text-center  m-0 leading-none;
 }
 
-
 .H1 {
-  @apply text-7xl lg:text-9xl text-white tracking-wider font-bold mt-11 text-center  m-0
+  @apply text-7xl lg:text-9xl text-white tracking-wider font-bold mt-11 text-center  m-0;
 }
 
 .skeleton {
-  @apply  bg-gray-200  dark:bg-gray-700 animate-pulse
+  @apply bg-gray-200  dark:bg-gray-700 animate-pulse;
 }
 
 .pageScrollBar::-webkit-scrollbar {
   width: 0px;
 }
-
 
 .leaderBoardScrollbar::-webkit-scrollbar {
   width: 8px;
@@ -90,4 +83,17 @@ html {
 }
 .countryLeaderBoardItem {
   box-shadow: 1px 1px 1px white;
+}
+
+.timeContainer {
+  text-shadow: 4px 4px 6px #0ced44;
+}
+
+polygon[fill-opacity="0.15"] {
+  display: none;
+}
+
+polygon[fill-opacity="1"] {
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.5));
+  /* transform: scale(0.5); */
 }
