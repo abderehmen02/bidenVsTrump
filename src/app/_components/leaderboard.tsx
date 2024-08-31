@@ -183,7 +183,7 @@ export const LeaderBoard: React.FC<{
         ) : (
           <div className="skeleton w-40 h-8"></div>
         )}
-        <h4 className="text-yellow-400  leaderboardText text-xl lg:text-4xl font-extrabold">
+        <h4 className="text-yellow-400  leaderboardText  lg:text-4xl font-extrabold">
           Leaderboard
         </h4>
         <div className="flex gap-1 lg:gap-4 items-center  ">

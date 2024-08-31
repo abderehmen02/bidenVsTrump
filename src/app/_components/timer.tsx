@@ -36,13 +36,13 @@ export const Timer = () => {
       </h5>
       <div className=" flex ">
         <div className="flex ">
-          <div className="w-[90px] lg:w-[90px]  relative  ">
+          <div className="w-[80px] lg:w-[90px]  relative  ">
             <Display value={displayedDays} color="#0ced44" />
             <h5 className="text-md absolute right-1 -bottom-6 font-semibold  text-white">
               Days
             </h5>
           </div>
-          <div className="w-[90px]  lg:w-[90px] relative  ">
+          <div className="w-[80px]  lg:w-[90px] relative  ">
             <Display value={displayedHour} color="#0ced44" />
             <h5 className="text-md absolute -right-2 -bottom-6 font-semibold  text-white">
               Hours
@@ -53,7 +53,7 @@ export const Timer = () => {
           </div>
         </div>
         <div className="flex">
-          <div className="w-[90px] lg:w-[90px] relative ">
+          <div className="w-[80px] lg:w-[90px] relative ">
             <Display value={displayedMin} color="#0ced44" />
             <h5 className="text-md absolute right-0 -bottom-6 font-semibold  text-white">
               Mins
@@ -62,7 +62,7 @@ export const Timer = () => {
               :
             </h5>
           </div>
-          <div className="w-[90px] lg:w-[90px] relative  ">
+          <div className="w-[80px] lg:w-[90px] relative  ">
             <Display value={displayedSec} color="#0ced44" />
             <h5 className="text-md absolute right-2 -bottom-6 font-semibold  text-white">
               Secs
