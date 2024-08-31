@@ -164,7 +164,7 @@ export const LeaderBoard: React.FC<{
         { "h-fit overflow-visible": leaderboardOpened }
       )}
     >
-      <div className="px-3 lg:px-8 py-2  bg-white shadow-2xl shadow-white border-b-2 border-white bg-opacity-55 backdrop-blur rounded-t-lg   flex items-center justify-between">
+      <div className="px-3 lg:px-8 py-4 bg-white shadow-2xl shadow-white border-b-2 border-white bg-opacity-55 backdrop-blur rounded-t-lg   flex items-center justify-between">
         {greatestCountry ? (
           <div className="flex gap-1 items-center  ">
             <h4 style={{ margin: 0, color: "black" }} className="H7">
