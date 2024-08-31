@@ -60,6 +60,19 @@ export const CountryVoteUi: React.FC<{
         </h4>
       </div>
       <div className="w-full flex px-2  py-1 lg:py-2 items-center justify-between">
+        <div className="w-full flex items-center  justify-end gap-1 lg:gap-2 ">
+          <h6 style={{ color: "black", margin: 0 }} className="H6 ">
+            {countryVotes.biden.toLocaleString()}
+          </h6>
+
+          <img src="/harisImg.png" className="w-[38px] lg:w-[53px]" />
+          <h4
+            style={{ color: "black", margin: 0 }}
+            className="H6 hidden lg:block"
+          >
+            Harris
+          </h4>
+        </div>
         <div className="w-full flex  items-center justify-end  gap-1 lg:gap-2  ">
           <h6 style={{ color: "black", margin: 0 }} className="H6 ">
             {countryVotes.trump.toLocaleString()}
@@ -71,20 +84,6 @@ export const CountryVoteUi: React.FC<{
             className="H6 hidden lg:block"
           >
             Trump
-          </h4>
-        </div>
-        <div className="w-full flex items-center  justify-end gap-1 lg:gap-2 ">
-          <h6 style={{ color: "black", margin: 0 }} className="H6 ">
-            {" "}
-            {countryVotes.biden.toLocaleString()}
-          </h6>
-
-          <img src="/harisImg.png" className="w-[38px] lg:w-[53px]" />
-          <h4
-            style={{ color: "black", margin: 0 }}
-            className="H6 hidden lg:block"
-          >
-            Harris
           </h4>
         </div>
       </div>
@@ -184,8 +183,9 @@ export const LeaderBoard: React.FC<{
         ) : (
           <div className="skeleton w-40 h-8"></div>
         )}
-        <img className=" w-[200px] lg:w-[300px]" src="/leaderboard.png" />
-
+        <h4 className="text-yellow-400  leaderboardText text-xl lg:text-4xl font-extrabold">
+          Leaderboard
+        </h4>
         <div className="flex gap-1 lg:gap-4 items-center  ">
           <img
             src={`/flags/${countrySymbol?.trim().toLowerCase()}.png`}

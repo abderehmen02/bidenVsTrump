@@ -95,5 +95,13 @@ polygon[fill-opacity="0.15"] {
 
 polygon[fill-opacity="1"] {
   filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.5));
-  /* transform: scale(0.5); */
+  /* transform: scale(0.7); */
+}
+
+.leaderboardImage {
+  box-shadow: 4px 4px 6px black;
+}
+
+.leaderboardText {
+  text-shadow: 4px 4px 5px black, -4px -4px 5px black;
 }

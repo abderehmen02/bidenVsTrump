@@ -55,7 +55,6 @@ export default async function Home() {
           <TrumpVotes />
         </div>
         <div className="lg:hidden">
-          {" "}
           <Timer />
         </div>
       </div>
