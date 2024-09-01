@@ -112,12 +112,11 @@ export const VotingUi = () => {
         <div> {bidenVoteAnimations.map((animation) => animation.element)}</div>
         <img className="w-[300px] lg:w-[250px] " src="/harisName.png" />
         <div className="relative flex items-center justify-center  overflow-visible h-fit ">
-          <div className="w-full absolute max-w-full lg:hidden -translate-x-8 overflow-hidden">
-            {" "}
+          <div className="w-full absolute max-w-full lg:hidden -translate-x-11 ">
             <img
               style={{ margin: 0 }}
               src="/animationPic.gif"
-              className={cn("  z-10 min-w-[230px]   lg:min-w-[500px] ", {
+              className={cn("  z-50 min-w-[230px]    lg:min-w-[500px] ", {
                 invisible: !votingBiden,
               })}
             />
@@ -153,7 +152,6 @@ export const VotingUi = () => {
           <TotalVotes />
         </div>
         <div className="hidden lg:block  ">
-          {" "}
           <MyVotesSection />
         </div>
       </div>
