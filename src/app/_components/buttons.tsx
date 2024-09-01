@@ -20,7 +20,7 @@ export const HeaderButtonsDesktop = () => {
     >
       <motion.a
         target="_blank"
-        href="www.thespudz.shop"
+        href="https://thespudz.shop/"
         animate={rotateBtn}
         onHoverStart={onHoverStart}
         className="cursor-pointer hidden lg:block z-0 relative"
@@ -38,7 +38,7 @@ export const HeaderButtonsDesktop = () => {
         style={{ margin: 0 }}
       />
       <div className="flex gap-5">
-        <a href="www.thespudz.xyz" target="_blank">
+        <a href="https://thespudz.xyz/" target="_blank">
           <motion.div
             whileHover={{ scale: 1.1 }}
             className="hidden relative  lg:block px-6 py-2  z-0 text-xl bg-green-700 text-white font-bold border-4 rounded-xl border-white"
@@ -81,14 +81,14 @@ export const PageButtons = () => {
         <img className="cursor-pointer" width="25px" src="/telegram.png" />
       </a>
 
-      <a href="www.thespudz.shop" target="_blank">
+      <a href="https://thespudz.shop/" target="_blank">
         <img
           className="w-[130px] relative z-0  lg:w-[200px]"
           src="/buyNow.png"
           style={{ margin: 0 }}
         />
       </a>
-      <a target="_blank" href="www.thespudz.xyz">
+      <a target="_blank" href="https://thespudz.xyz/">
         <motion.div
           whileHover={{ scale: 1.1 }}
           className="relative z-20 lg:block lg:px-6 px-2 py-1 lg:py-2  lg:text-xl bg-green-700 text-white font-bold border-2 rounded-xl border-white"
