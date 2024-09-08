@@ -48,7 +48,7 @@ export const HeaderButtonsDesktop = () => {
         </a>
         {/* <img className="hidden lg" width="200px" src="/home.png" style={{margin :0}} /> */}
         <div className="gap-3 hidden lg:flex">
-          <a href="https://t.me/+Btb7EqqapDhlOTc5" target="_blank">
+          <a href="https://t.me/SpudzForPrezident" target="_blank">
             <motion.img
               className="cursor-pointer"
               whileHover={{ scale: 1.2 }}
@@ -77,7 +77,7 @@ export const PageButtons = () => {
       style={{ margin: 0 }}
       className="flex  py-2 lg:py-3    px-1 lg:hidden w-full  relative  z-0  items-center justify-around"
     >
-      <a href="https://t.me/+Btb7EqqapDhlOTc5" target="_blank">
+      <a href="https://t.me/SpudzForPrezident" target="_blank">
         <img className="cursor-pointer" width="25px" src="/telegram.png" />
       </a>
 
