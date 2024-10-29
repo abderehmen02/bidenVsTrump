@@ -31,9 +31,9 @@ export const Timer = () => {
   console.log(displayedDays, displayedMin, displayedHour, displayedSec);
   return (
     <div className="flex mb-4 flex-col items-center -translate-x-5 lg:translate-x-0  gap-1">
-      <h5 className="text-xl block  text-center translate-x-4 lg:translate-x-5 text-white">
+      {/* <h5 className="text-xl block  text-center translate-x-4 lg:translate-x-5 text-white">
         Voting ends on October 30 th, 2024
-      </h5>
+      </h5> */}
       <div className=" flex ">
         <div className="flex ">
           <div className="w-[80px] lg:w-[90px]  relative  ">
