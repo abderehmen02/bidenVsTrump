@@ -20,7 +20,7 @@ export const HeaderButtonsDesktop = () => {
     >
       <motion.a
         target="_blank"
-        href="https://thespudz.shop/"
+        href="https://thespudz.xyz/buy"
         animate={rotateBtn}
         onHoverStart={onHoverStart}
         className="cursor-pointer hidden lg:block z-0 relative"
@@ -81,7 +81,7 @@ export const PageButtons = () => {
         <img className="cursor-pointer" width="25px" src="/telegram.png" />
       </a>
 
-      <a href="https://thespudz.shop/" target="_blank">
+      <a href="https://thespudz.xyz/buy" target="_blank">
         <img
           className="w-[130px] relative z-0  lg:w-[200px]"
           src="/buyNow.png"

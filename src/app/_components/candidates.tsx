@@ -73,7 +73,7 @@ export const BidenVotes = () => {
   return (
     <div className="flex flex-col lg:flex-row xl:flex-col  lg:gap-2 gap-2 items-center">
       <h4 style={{ margin: 0 }} className="H4">
-        Haris Spudz
+        Harris Spudz
       </h4>
       {totalBidenVotes ? (
         <h4 style={{ margin: 0 }} className="H4">

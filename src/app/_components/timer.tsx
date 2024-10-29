@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Display from "seven-segment-display";
 
 export const Timer = () => {
-  const initialEndDate = new Date(2024, 9, 30);
+  const initialEndDate = new Date(2024, 10, 6);
   const [days, setDays] = useState(0);
   const [min, setMin] = useState(0);
   const [sec, setSec] = useState(0);
